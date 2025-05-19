@@ -1,8 +1,16 @@
+import { useRef } from 'react';
+import DialogPolicy from '../dialog_policy/dialog_policy';
 import './footer.css'
 
 function Footer() {
+  const dialogPolicyRef = useRef<HTMLDialogElement>(null);
+
   const onClickPrivacyPolicy = () => {
     window.open('https://privacy.kia.com/overview/full-policy', '_self');
+  }
+
+  const onClickTermsOfService = () => {
+    dialogPolicyRef.current?.showModal();
   }
 
   return (
@@ -11,7 +19,7 @@ function Footer() {
         <div className="information">
           <span className="util">
             <button type="button" onClick={onClickPrivacyPolicy}><b>개인정보 처리방침</b></button>
-            <button type="button">이용약관</button>
+            <button type="button" onClick={onClickTermsOfService}>이용약관</button>
           </span>
           <address>
             <span>서울특별시 서초구 헌릉로 12 <em>기아㈜</em></span>
@@ -25,6 +33,7 @@ function Footer() {
         </div>
         <p className="copyright">© 2023 KIA CORP. All Rights Reserved.</p>
       </div>
+      <DialogPolicy ref={dialogPolicyRef} />
     </footer>
   );
 }
