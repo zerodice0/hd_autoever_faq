@@ -1,0 +1,15 @@
+@font-face {
+  font-family: 'KiaSignatureFixBold';
+  src: url('/fonts/KiaSignatureFixBold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap; /* 폰트가 로드되기 전까지 시스템 폰트를 사용하도록 설정 */
+}
+
+@font-face {
+  font-family: 'KiaSignatureFixRegular';
+  src: url('/fonts/KiaSignatureFixRegular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
