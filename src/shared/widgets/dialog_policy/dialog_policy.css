@@ -1,157 +1,227 @@
 dialog {
-  padding: 0px;
+	transform: translate3d(0, 0, 0); /* for iOS (flicker when keyboard triggered) */
+}
+dialog {
+	max-width: calc(100% - var(--side-padding) * 2);
+	max-height: calc(100% - var(--side-padding) * 2);
+	min-width: 320px;
+	visibility: visible;
+	background: #fff;
+	border: none;
+	border-radius: 0;
+}
+dialog {
+	animation: dialog-show 0.4s cubic-bezier(0.4, 2, 0.6, 1);
+}
+@keyframes dialog-show {
+	from {
+		transform: translateY(-16px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+}
+dialog[closing] {
+	animation: dialog-close 0.3s cubic-bezier(0.4, 0, 0.6, -1);
+	animation-fill-mode: both;
+}
+@keyframes dialog-close {
+	from {
+		transform: translateY(0%);
+		opacity: 1;
+	}
+	to {
+		transform: translateY(-16px);
+		opacity: 0;
+	}
+}
+dialog::backdrop {
+	background: rgba(0, 0, 0, 0.4);
+}
+dialog:not([closing])::backdrop {
+	animation: dialog-backdrop-show 0.4s;
+}
+@keyframes dialog-backdrop-show {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+dialog[closing]::backdrop {
+	animation: dialog-backdrop-close 0.3s;
+	animation-fill-mode: both;
+}
+@keyframes dialog-backdrop-close {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+.dialog-wrapper {
+	--padding: 32px;
+	padding: 0 var(--padding);
+}
+.dialog-header {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	padding-top: 16px;
+	border-bottom: 2px solid var(--midnight-900);
+}
+.dialog-header > h4 {
+	flex: 1;
+	font-size: 20px;
+	margin: 0.4em 1em 0.4em 0;
+}
+.dialog-header > .close {
+	box-sizing: content-box;
+	width: 24px;
+	height: 24px;
+	margin-right: -16px;
+	padding: 16px;
+	font-size: 0;
+	background: url(../images/ic_close.svg) no-repeat 50%;
+	background-size: auto 24px;
+	outline: none;
+}
+.dialog-body {
+	--padding-top: 12px;
+	padding: var(--padding-top) 0 var(--padding);
+}
+.dialog-body .btn-xlg {
+	min-width: 7.5em;
+	height: 52px;
+	font-size: 18px;
+}
+.dialog-body .message {
+	text-align: center;
+	line-height: var(--line-height-md);
+	word-break: keep-all;
+}
+.dialog-wrapper.dialog-error .dialog-header {
+	border-bottom: none;
+}
+.dialog-wrapper.dialog-error .dialog-body {
+	--padding-top: 8px;
+	padding-left: var(--padding);
+	padding-right: var(--padding);
+}
+.dialog-wrapper.dialog-error .button-group {
+	margin-top: var(--px-md);
+}
+.dialog-wrapper.dialog-policy {
+	display: flex;
+	flex-direction: column;
+	width: 960px;
+	height: 100%;
+}
+.dialog-policy .dialog-body {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+}
+.dialog-policy iframe {
+	flex: 1;
+	min-height: 0;
+}
+.dialog-policy .policy-top {
+	margin-bottom: var(--padding-top);
+	text-align: right;
+}
+@media (max-width: 1060px) {
+	.dialog-wrapper {
+		--padding: 20px;
+		width: auto !important;
+	}
+	.dialog-header {
+		padding-top: 4px;
+	}
+	.dialog-header > h4 {
+		font-size: 16px;
+	}
+	.dialog-body .btn-xlg {
+		height: 48px;
+		font-size: 16px;
+	}
+	.dialog-wrapper.dialog-error .dialog-body {
+		--padding-top: 0;
+	}
+	.dialog-policy .policy-top > select {
+		width: 100%;
+	}
+}
+@media (min-width: 1024px) and (max-width: 1439px) {
+	.dialog-header > .close {
+		width: 28px;
+		height: 28px;
+		background-size: auto 28px;
+	}
+}
+@media (min-width: 1440px) {
+	.dialog-wrapper {
+		--padding: 40px;
+	}
+	.dialog-header > h4 {
+		font-size: 24px;
+	}
+	.dialog-header > .close {
+		width: 32px;
+		height: 32px;
+		background-size: auto 32px;
+	}
+	.dialog-body {
+		--padding-top: 16px;
+	}
 }
 
-.font-size-9 {
-  font-size:9.0pt;
+/* for editor output (without iframe) */
+.dialog-policy .policy-top + div {
+	flex: 1;
+	overflow-y: auto;
 }
-
-.dialog-policy-table {
-  display: table;
-  margin: 0.9em auto;
-  width: 446.15pt;
+@media (hover: hover) and (pointer: fine) {
+	.dialog-policy .policy-top + div {
+		padding-right: 8px;
+	}
 }
-
-.dialog-policy-table-auto {
-  display: table; margin: 0.9em auto;
+.dialog-policy .policy-top + div * {
+	font-size: 12px !important;
+	line-height: var(--line-height-sm) !important;
+	text-indent: 0 !important;
+	word-break: break-all !important;
 }
-
-.dialog-policy-table-data {
-  border: 1.0pt solid black;
-  height: 16.5pt;
-  min-width: 2em;
-  overflow-wrap: break-word;
-  padding: .75pt;
-  position: relative;
-  width: 176.8pt;
+.dialog-policy .policy-top + div p {
+	margin-bottom: 8px;
 }
-
-.dialog-policy-table-data-fixed-width {
-  border: 1px solid hsl(0, 0%, 75%);
-  border-bottom-style: solid;
-  border-color: black;
-  border-left-style: none;
-  border-right-style: solid;
-  border-top-style: solid;
-  border-width: 1.0pt;
-  height: 16.5pt;
-  min-width: 2em;
-  overflow-wrap: break-word;
-  padding: .75pt;
-  position: relative;
-  width: 269.35pt;
+.dialog-policy .policy-top + div table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
 }
-
-.a {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 33.75pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt;
+.dialog-policy .policy-top + div table * {
+	font-size: 10px !important;
 }
-
-.b {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom: 1.0pt solid black; border-left: 1px none hsl(0, 0%, 75%); border-right: 1.0pt solid black; border-top: 1px none hsl(0, 0%, 75%); height: 33.75pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 269.35pt;
+.dialog-policy .policy-top + div th,
+.dialog-policy .policy-top + div td {
+	padding: 4px;
+	border: 1px solid var(--gray-100);
 }
-
-.c {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 16.5pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt; 
+@media (min-width: 744px) and (max-width: 1439px) {
+	.dialog-policy .policy-top + div *,
+	.dialog-policy .policy-top + div table * {
+		font-size: 14px !important;
+	}
 }
-
-.d {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 33.75pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt; 
-}
-
-.e {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 16.5pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt;
-}
-
-.f {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 37.65pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt;
-}
-
-.g {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom: 1.0pt solid black; border-left: 1px none hsl(0, 0%, 75%); border-right: 1.0pt solid black; border-top: 1px none hsl(0, 0%, 75%); height: 37.65pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 269.35pt;
-}
-
-.h {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 33.0pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative;
-}
-
-.i {
-  border: 1px solid hsl(0, 0%, 75%); border-bottom: 1.0pt solid black; border-left: 1px none hsl(0, 0%, 75%); border-right: 1.0pt solid black; border-top: 1px none hsl(0, 0%, 75%); height: 33.0pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 269.35pt;
-}
-
-.j {
-  line-height:normal; text-autospace:ideograph-numeric ideograph-other; word-break:keep-all; 
-}
-
-.k {
-  line-height:normal;text-align:left;text-autospace:ideograph-numeric ideograph-other;word-break:keep-all;
-}
-
-.l {
-  border: 1.0pt solid #BFBFBF; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; vertical-align: top; width: 51.9pt;
-}
-
-.m {
-  line-height:normal;margin-bottom:.0001pt;text-align:left;
-}
-
-.dialog-policy-title {
-  color:black;
-  font-size:14.0pt;
-}
-
-.dialog-policy-details-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.dialog-policy-details-item-details-left-align {
-  line-height:normal;
-  margin-bottom:.0001pt;
-  text-align:left;
-  text-autospace:ideograph-numeric ideograph-other;
-  word-break:keep-all;
-}
-
-.dialog-policy-details-table-data-fixed-width {
-  border: 1.0pt solid #BFBFBF;
-  min-width: 2em;
-  overflow-wrap: break-word;
-  padding: .75pt;
-  position: relative;
-  width: 127.85pt;
-}
-
-.dialog-policy-details-table-data {
-  border: 1.0pt solid #BFBFBF;
-  min-width: 2em;
-  overflow-wrap: break-word;
-  padding: .75pt;
-  position: relative;
-}
-
-.dialog-policy-details-table-right-align {
-  line-height:normal;
-  margin-bottom:.0001pt;
-  text-align:right;
-  text-autospace:ideograph-numeric ideograph-other;
-  word-break:keep-all;
-}
-
-.dialog-policy-details-table-center-align {
-  line-height:normal;
-  margin-bottom:.0001pt;
-  text-align:center;
-  text-autospace:ideograph-numeric ideograph-other;
-  word-break:keep-all;
-
-}
-
-.dialog-policy-details-table-data-text {
-  color:black;
-  font-size:8.0pt;
-}
-
-.color-black {
-  color: black;
+@media (min-width: 1440px) {
+	.dialog-policy .policy-top + div *,
+	.dialog-policy .policy-top + div table * {
+		font-size: 16px !important;
+	}
 }
