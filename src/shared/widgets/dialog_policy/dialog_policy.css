@@ -1,0 +1,157 @@
+dialog {
+  padding: 0px;
+}
+
+.font-size-9 {
+  font-size:9.0pt;
+}
+
+.dialog-policy-table {
+  display: table;
+  margin: 0.9em auto;
+  width: 446.15pt;
+}
+
+.dialog-policy-table-auto {
+  display: table; margin: 0.9em auto;
+}
+
+.dialog-policy-table-data {
+  border: 1.0pt solid black;
+  height: 16.5pt;
+  min-width: 2em;
+  overflow-wrap: break-word;
+  padding: .75pt;
+  position: relative;
+  width: 176.8pt;
+}
+
+.dialog-policy-table-data-fixed-width {
+  border: 1px solid hsl(0, 0%, 75%);
+  border-bottom-style: solid;
+  border-color: black;
+  border-left-style: none;
+  border-right-style: solid;
+  border-top-style: solid;
+  border-width: 1.0pt;
+  height: 16.5pt;
+  min-width: 2em;
+  overflow-wrap: break-word;
+  padding: .75pt;
+  position: relative;
+  width: 269.35pt;
+}
+
+.a {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 33.75pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt;
+}
+
+.b {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom: 1.0pt solid black; border-left: 1px none hsl(0, 0%, 75%); border-right: 1.0pt solid black; border-top: 1px none hsl(0, 0%, 75%); height: 33.75pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 269.35pt;
+}
+
+.c {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 16.5pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt; 
+}
+
+.d {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 33.75pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt; 
+}
+
+.e {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 16.5pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt;
+}
+
+.f {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 37.65pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 176.8pt;
+}
+
+.g {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom: 1.0pt solid black; border-left: 1px none hsl(0, 0%, 75%); border-right: 1.0pt solid black; border-top: 1px none hsl(0, 0%, 75%); height: 37.65pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 269.35pt;
+}
+
+.h {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom-style: solid; border-color: black; border-left-style: solid; border-right-style: solid; border-top-style: none; border-width: 1.0pt; height: 33.0pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative;
+}
+
+.i {
+  border: 1px solid hsl(0, 0%, 75%); border-bottom: 1.0pt solid black; border-left: 1px none hsl(0, 0%, 75%); border-right: 1.0pt solid black; border-top: 1px none hsl(0, 0%, 75%); height: 33.0pt; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; width: 269.35pt;
+}
+
+.j {
+  line-height:normal; text-autospace:ideograph-numeric ideograph-other; word-break:keep-all; 
+}
+
+.k {
+  line-height:normal;text-align:left;text-autospace:ideograph-numeric ideograph-other;word-break:keep-all;
+}
+
+.l {
+  border: 1.0pt solid #BFBFBF; min-width: 2em; overflow-wrap: break-word; padding: .75pt; position: relative; vertical-align: top; width: 51.9pt;
+}
+
+.m {
+  line-height:normal;margin-bottom:.0001pt;text-align:left;
+}
+
+.dialog-policy-title {
+  color:black;
+  font-size:14.0pt;
+}
+
+.dialog-policy-details-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dialog-policy-details-item-details-left-align {
+  line-height:normal;
+  margin-bottom:.0001pt;
+  text-align:left;
+  text-autospace:ideograph-numeric ideograph-other;
+  word-break:keep-all;
+}
+
+.dialog-policy-details-table-data-fixed-width {
+  border: 1.0pt solid #BFBFBF;
+  min-width: 2em;
+  overflow-wrap: break-word;
+  padding: .75pt;
+  position: relative;
+  width: 127.85pt;
+}
+
+.dialog-policy-details-table-data {
+  border: 1.0pt solid #BFBFBF;
+  min-width: 2em;
+  overflow-wrap: break-word;
+  padding: .75pt;
+  position: relative;
+}
+
+.dialog-policy-details-table-right-align {
+  line-height:normal;
+  margin-bottom:.0001pt;
+  text-align:right;
+  text-autospace:ideograph-numeric ideograph-other;
+  word-break:keep-all;
+}
+
+.dialog-policy-details-table-center-align {
+  line-height:normal;
+  margin-bottom:.0001pt;
+  text-align:center;
+  text-autospace:ideograph-numeric ideograph-other;
+  word-break:keep-all;
+
+}
+
+.dialog-policy-details-table-data-text {
+  color:black;
+  font-size:8.0pt;
+}
+
+.color-black {
+  color: black;
+}
