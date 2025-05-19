@@ -6,10 +6,11 @@ header {
 	top: 0;
 	padding: 0 var(--side-padding);
 	background-color: #fff;
+	font-family: 'KiaSignatureFixBold', sans-serif;
 }
 header > .inner {
 	display: flex;
-	flex-wrap: wrap;
+	flex-wrap: row wrap;
 	align-items: center;
 	max-width: var(--max-width);
 	height: var(--header-height);
