@@ -1,4 +1,4 @@
-@import './shared/styles/fonts.css';
+@import 'src/shared/ui/common/fonts.css';
 
 .app {
   display: flex;

@@ -1,4 +1,4 @@
-@import '../../styles/vars.css';
+@import 'src/shared/ui/common/vars.css';
 
 header {
 	z-index: 100;
