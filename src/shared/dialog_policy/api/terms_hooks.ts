@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchAdminPrivacy, fetchJoinServicesUse } from '@/shared/terms/api/terms_api';
-import type { Term } from '@/shared/terms/model/terms_model';
+import type { Term } from '@/shared/dialog_policy/model/terms_model';
 
 export const useAdminPrivacy = (): Term[] => {
   const [adminPrivacyData, setAdminPrivacyData] = useState<Term[]>([]);

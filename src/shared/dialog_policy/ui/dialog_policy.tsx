@@ -1,6 +1,6 @@
 import '@/shared/dialog_policy/ui/dialog_policy.css';
 import { useState } from 'react';
-import { useJoinServicesUse } from '@/shared/terms/api/terms_hooks';
+import { useJoinServicesUse } from '@/shared/dialog_policy/api/terms_hooks';
 
 interface DialogPolicyProps {
   ref: React.RefObject<HTMLDialogElement | null>;

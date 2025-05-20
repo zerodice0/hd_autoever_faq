@@ -1,4 +1,4 @@
-import type { Term } from '@/shared/terms/model/terms_model';
+import type { Term } from '@/shared/dialog_policy/model/terms_model';
 
 export const fetchAdminPrivacy = async (): Promise<Term[]> => {
   const response = await fetch('/terms?termsClassID=STARTADMIN_ADMIN_PRIVACY');
