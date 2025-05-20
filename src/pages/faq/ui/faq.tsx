@@ -42,15 +42,6 @@ function Faq() {
           </li>
         ))}
       </ul>
-      {/* <ul className="tabs">
-        {tabs.map((tab) => (
-          <li key={tab}
-              onClick={() => setActiveTab(tab)}
-              className={activeTab === tab ? 'active' : ''}>
-            <a><span>{tab}</span></a>
-          </li>
-        ))}
-      </ul> */}
       <form>
         <div className="search">
           <div className="input-wrap">
