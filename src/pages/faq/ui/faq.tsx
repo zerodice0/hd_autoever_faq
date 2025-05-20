@@ -10,11 +10,13 @@ function Faq() {
     {
       label: '서비스 도입',
       value: tabsType.serviceConsult,
+      category: 'CONSULT',
       isSelected: true,
     },
     {
       label: '서비스 이용',
       value: tabsType.serviceUsage,
+      category: 'USAGE',
       isSelected: false,
     },
   ]);

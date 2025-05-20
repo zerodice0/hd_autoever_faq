@@ -1,6 +1,7 @@
 export interface Tabs<T> {
   label: string;
   value: T;
+  category: string;
   isSelected: boolean;
 }
 
