@@ -1,5 +1,5 @@
 
-import type { Category } from "../model/category_model";
+import type { Category } from "@/pages/faq/model/category_model";
 
 export const fetchCategory = async (): Promise<Category[]> => {
   const response = await fetch('/category');

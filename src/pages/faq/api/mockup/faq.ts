@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
-import { SERVICE_USAGE_FAQ } from './mockup/service_usage_faq';
-import { SERVICE_CONSULT_FAQ } from './mockup/service_consult_faq';
+import { SERVICE_USAGE_FAQ } from '@/pages/faq/api/mockup/service_usage_faq';
+import { SERVICE_CONSULT_FAQ } from '@/pages/faq/api/mockup/service_consult_faq';
 
 export const faq = [
   http.get("/faq", ({ request }) => {
