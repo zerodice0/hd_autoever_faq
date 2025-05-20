@@ -1,4 +1,4 @@
-import '@/shared/ui/common/init.css'
+import '@/shared/common/ui/init.css'
 import '@/App.css'
 import Header from '@/shared/header/ui/header'
 import Footer from '@/shared/footer/ui/footer'
