@@ -2,11 +2,29 @@ import '@/pages/faq/ui/content.css';
 import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
 
+import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
 import { useState } from 'react';
 
 function Faq() {
-  const tabs = ['서비스 도입', '서비스 이용'];
-  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
+    {
+      label: '서비스 도입',
+      value: tabsType.serviceConsult,
+      isSelected: true,
+    },
+    {
+      label: '서비스 이용',
+      value: tabsType.serviceUsage,
+      isSelected: false,
+    },
+  ]);
+
+  const handleTabClick = (value: string) => {
+    setTabs(tabs.map((tab) => ({
+      ...tab,
+      isSelected: tab.value === value,
+    })));
+  };
 
   return (
     <div className='content'>
@@ -17,13 +35,22 @@ function Faq() {
       <i className='sticky-checker'/>
       <ul className="tabs">
         {tabs.map((tab) => (
+          <li key={tab.value} className={tab.isSelected ? 'active' : ''}>
+            <a onClick={() => handleTabClick(tab.value)}>
+              <span>{tab.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      {/* <ul className="tabs">
+        {tabs.map((tab) => (
           <li key={tab}
               onClick={() => setActiveTab(tab)}
               className={activeTab === tab ? 'active' : ''}>
             <a><span>{tab}</span></a>
           </li>
         ))}
-      </ul>
+      </ul> */}
       <form>
         <div className="search">
           <div className="input-wrap">
