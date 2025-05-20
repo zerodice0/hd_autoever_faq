@@ -1,4 +1,5 @@
-@import 'src/shared/ui/common/fonts.css';
+@import 'src/shared/common/ui/fonts.css';
+@import 'src/shared/common/ui/vars.css';
 
 .app {
   display: flex;
@@ -6,4 +7,8 @@
   width: 100vw;
   height: 100vh;
   font-family: 'KiaSignatureFixRegular', sans-serif;
+}
+
+.container {
+  padding: 0 var(--side-padding);
 }
