@@ -1,6 +1,7 @@
 import { http, HttpResponse } from 'msw';
-import { ADMIN_PRIVACY } from './responses/admin_privacy';
-import { JOIN_SERVICES_USE } from './responses/join_services_use';
+import { ADMIN_PRIVACY } from './admin_privacy';
+import { JOIN_SERVICES_USE } from './join_services_use';
+
 export const terms = [
 	http.get("/terms", ({ request }) => {
 		const url = new URL(request.url);
