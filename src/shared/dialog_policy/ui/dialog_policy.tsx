@@ -1,5 +1,5 @@
+import '@/shared/dialog_policy/ui/dialog_policy.css';
 import { useState } from 'react';
-import './dialog_policy.css';
 import { useJoinServicesUse } from '@/shared/terms/api/terms_hooks';
 
 interface DialogPolicyProps {

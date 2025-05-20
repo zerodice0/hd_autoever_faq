@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import DialogPolicy from '../dialog_policy/dialog_policy';
-import './footer.css'
+import DialogPolicy from '@/shared/dialog_policy/ui/dialog_policy';
+import '@/shared/footer/ui/footer.css'
 
 function Footer() {
   const dialogPolicyRef = useRef<HTMLDialogElement>(null);

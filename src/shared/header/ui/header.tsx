@@ -1,4 +1,4 @@
-import './header.css';
+import '@/shared/header/ui/header.css';
 import { useState } from 'react';
 const Header = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
