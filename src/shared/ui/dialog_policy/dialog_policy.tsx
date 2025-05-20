@@ -1,17 +1,26 @@
-import './dialog_policy.css';
+import { useEffect } from 'react';
 
+import './dialog_policy.css';
 interface DialogPolicyProps {
   ref: React.RefObject<HTMLDialogElement | null>;
 }
 
 function DialogPolicy({ ref }: DialogPolicyProps) {
+  useEffect(() => {
+    
+  }, []);
+
+  const onClickDialogClose = () => {
+    ref.current?.close();
+  }
+
   return (
     <dialog ref={ref} style={{ padding: '0px'}}>
       <div>
         <div className="dialog-wrapper dialog-policy" id="ms_policy1">
           <div className="dialog-header">
             <h4>개인정보 처리방침</h4>
-            <button type="button" className="close">닫기</button>
+            <button type="button" className="close" onClick={onClickDialogClose}>닫기</button>
           </div>
           <div className="dialog-body">
             <div className="policy-top">

@@ -86,7 +86,7 @@ dialog[closing]::backdrop {
 	margin-right: -16px;
 	padding: 16px;
 	font-size: 0;
-	background: url(../images/ic_close.svg) no-repeat 50%;
+	background: url(/images/ic_close.svg) no-repeat 50%;
 	background-size: auto 24px;
 	outline: none;
 }

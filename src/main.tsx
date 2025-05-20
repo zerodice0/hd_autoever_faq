@@ -4,7 +4,7 @@ import App from './App.tsx'
 
 const mockWorker = async () => {
   if (import.meta.env.MODE === "development") {
-    const { worker } = await import("./shared/api/mocks/worker.ts");
+    const { worker } = await import("./shared/api/terms/worker.ts");
     await worker.start();
   }
 }
