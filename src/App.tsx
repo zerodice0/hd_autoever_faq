@@ -1,7 +1,7 @@
 import './shared/styles/init.css'
 import './App.css'
-import Header from './shared/widgets/header/header'
-import Footer from './shared/widgets/footer/footer'
+import Header from './shared/ui/header/header'
+import Footer from './shared/ui/footer/footer'
 
 function App() {
   return (
