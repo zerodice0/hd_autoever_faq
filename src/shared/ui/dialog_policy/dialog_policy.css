@@ -179,6 +179,10 @@ dialog[closing]::backdrop {
 	.dialog-body {
 		--padding-top: 16px;
 	}
+
+	.dialog-policy .policy-top > select {
+		width: 100%;
+	}
 }
 
 /* for editor output (without iframe) */
