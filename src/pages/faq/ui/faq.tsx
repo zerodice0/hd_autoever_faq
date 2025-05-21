@@ -44,6 +44,8 @@ function Faq() {
   }, [currentQuestion, selectedCategory, tabs]);
 
   const onClickTab = (value: string) => {
+    setFaqs([]);
+    setSelectedFaqId(null);
     setTabs(tabs.map((tab) => ({
       ...tab,
       isSelected: tab.value === value,
@@ -52,9 +54,10 @@ function Faq() {
   };
 
   const onChangeCategory = (categoryID: string | null) => {
+    setFaqs([]);
+    setSelectedFaqId(null);
     setSelectedCategory(categoryID);
     setCurrentQuestion(null);
-    setFaqs([]);
   };
 
   const onClickFaq = (faqId: number) => {
