@@ -27,6 +27,7 @@ function Faq() {
   const categories = useCategories(tabs.find((tab) => tab.isSelected)?.value || '');
   
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [question, setQuestion] = useState<string>('');
   const [currentQuestion, setCurrentQuestion] = useState<string | null>(null);
   const [faqs, setFaqs] = useState<Faq[]>([]);
   const [selectedFaqId, setSelectedFaqId] = useState<number | null>(null);
@@ -38,13 +39,12 @@ function Faq() {
       selectedCategory,
       currentQuestion,
     ).then((response: FaqResponse) => {
-      setFaqs([...faqs, ...response.data]);
+      setFaqs(response.data); // offset이 0이면 response.data를 설정
     });
     
   }, [currentQuestion, selectedCategory, tabs]);
 
   const onClickTab = (value: string) => {
-    setFaqs([]);
     setSelectedFaqId(null);
     setTabs(tabs.map((tab) => ({
       ...tab,
@@ -54,10 +54,9 @@ function Faq() {
   };
 
   const onChangeCategory = (categoryID: string | null) => {
-    setFaqs([]);
     setSelectedFaqId(null);
+    setCurrentQuestion(question);
     setSelectedCategory(categoryID);
-    setCurrentQuestion(null);
   };
 
   const onClickFaq = (faqId: number) => {
@@ -65,6 +64,14 @@ function Faq() {
     const target = isSelectedFaqId ? null : faqId;
     setSelectedFaqId(target);
   };
+
+  const onClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setCurrentQuestion(question);
+    if (question.trim().length === 0) {
+      setSelectedCategory(null);
+    }
+  }
 
   return (
     <div className='content'>
@@ -85,9 +92,16 @@ function Faq() {
       <form>
         <div className="search">
           <div className="input-wrap">
-            <input type="text" placeholder="찾으시는 내용을 입력해 주세요" />
-            <button type="button" className="clear" data-ui-click="input-clear">다시입력</button>
-            <button type="button" className="submit">검색</button>
+            <input type="text" 
+              placeholder="찾으시는 내용을 입력해 주세요"
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)} />
+            <button type="button" 
+              className="clear"
+              onClick={() => setQuestion('')}>다시입력</button>
+            <button type="button"
+              className="submit"
+              onClick={onClickSearch}>검색</button>
           </div>
         </div>
       </form>
@@ -105,24 +119,29 @@ function Faq() {
           ))
         }
       </div>
-      <ul className="faq-list">
-        {faqs.map((faq) => (
-          <li key={faq.id} className={
-            selectedFaqId === faq.id ? 'active show' : ''
-            }>
-            <h4 className="a">
-              <button type="button" onClick={() => onClickFaq(faq.id)}>
-                {tabs.find((tab) => tab.isSelected)?.value === tabsType.serviceUsage}
-                <em>{faq.subCategoryName}</em>
-                <strong>{faq.question}</strong>
-              </button>
-            </h4>
-            <div className="q">
-              <div className="inner" dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
-            </div>
-          </li>
-        ))}
-      </ul>
+      {
+        faqs.length === 0 ? <div className="no-data">
+            <p>검색결과가 없습니다.</p>
+          </div> 
+        : <ul className="faq-list">
+          {faqs.map((faq) => (
+            <li key={faq.id} className={
+              selectedFaqId === faq.id ? 'active show' : ''
+              }>
+              <h4 className="a">
+                <button type="button" onClick={() => onClickFaq(faq.id)}>
+                  {tabs.find((tab) => tab.isSelected)?.value === tabsType.serviceUsage}
+                  <em>{faq.subCategoryName}</em>
+                  <strong>{faq.question}</strong>
+                </button>
+              </h4>
+              <div className="q">
+                <div className="inner" dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      }
     </div>
   );
 }

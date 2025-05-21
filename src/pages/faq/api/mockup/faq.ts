@@ -58,7 +58,7 @@ export const faq = [
         subCategory = ['쿠폰', '기타'];
       }
 
-      filteredFaqs = faqs.filter((faq) =>  
+      filteredFaqs = filteredFaqs.filter((faq) =>  
         subCategory.includes(faq.subCategoryName)
       );
     }
