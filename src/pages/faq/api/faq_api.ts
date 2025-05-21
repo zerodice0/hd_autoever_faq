@@ -1,4 +1,4 @@
-import type { Faq, FaqResponse } from "@/pages/faq/model/faq_model";
+import type { FaqData, FaqResponse } from "@/pages/faq/model/faq_model";
 import type { PageInformation } from "@/pages/faq/model/page_model";
 
 export const fetchFaqs = async (
@@ -20,7 +20,7 @@ export const fetchFaqs = async (
   const json = await response.json();
 
   const pageInformation: PageInformation = json.pageInfo;
-  const faqs: Faq[] = json.data;
+  const faqs: FaqData[] = json.data;
 
   return {
     pageInformation,

@@ -7,7 +7,7 @@ import '@/pages/faq/ui/list_more.css';
 
 import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
 import { useCategories } from '@/pages/faq/api/category_hooks';
-import type { Faq, FaqResponse } from '@/pages/faq/model/faq_model';
+import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
 import { useEffect, useState } from 'react';
 import { fetchFaqs } from '../api/faq_api';
 
@@ -30,9 +30,9 @@ function Faq() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [question, setQuestion] = useState<string>('');
   const [currentQuestion, setCurrentQuestion] = useState<string | null>(null);
-  const [faqs, setFaqs] = useState<Faq[]>([]);
+  const [faqs, setFaqs] = useState<FaqData[]>([]);
   const [selectedFaqId, setSelectedFaqId] = useState<number | null>(null);
-  
+
   useEffect(() => {
     fetchFaqs(
       10, 0, 

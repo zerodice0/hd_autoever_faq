@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 import { SERVICE_USAGE_FAQ } from '@/pages/faq/api/mockup/service_usage_faq';
 import { SERVICE_CONSULT_FAQ } from '@/pages/faq/api/mockup/service_consult_faq';
-import type { Faq } from '@/pages/faq/model/faq_model';
+import type { FaqData } from '@/pages/faq/model/faq_model';
 
 export const faq = [
   http.get('/faq', ({ request }) => {
@@ -23,14 +23,14 @@ export const faq = [
     const offsetNumber = Number(offset);
     const prevOffset = offsetNumber - limitNumber > 0 ? offsetNumber - limitNumber : 0;
     
-    let faqs: Faq[] = [];
+    let faqs: FaqData[] = [];
     if (tab === 'USAGE') {
       faqs = SERVICE_USAGE_FAQ;
     } else if (tab === 'CONSULT') {
       faqs = SERVICE_CONSULT_FAQ;
     }
 
-    let filteredFaqs: Faq[] = faqs;
+    let filteredFaqs: FaqData[] = faqs;
     if (question) {
       filteredFaqs = faqs.filter((faq) => faq.question.includes(question) || faq.answer.includes(question));
     }
