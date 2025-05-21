@@ -1,0 +1,28 @@
+.inquiry-info {
+	display: flex;
+	margin: 0 calc(-1 * var(--space-md) / 2);
+}
+.inquiry-info > a {
+	flex: 1;
+	margin: 0 calc(var(--space-md) / 2);
+}
+@media (max-width: 743px) {
+	.inquiry-info {
+		flex-direction: column;
+	}
+	.inquiry-info > a {
+		justify-content: flex-start;
+	}
+	.inquiry-info > a:not(:first-child) {
+		margin-top: 12px;
+	}
+}
+@media (min-width: 744px) and (max-width: 1023px) {
+	.inquiry-info {
+		flex-wrap: wrap;
+	}
+	.inquiry-info > a:last-child {
+		min-width: calc(100% - var(--space-md));
+		margin-top: var(--space-md);
+	}
+}
