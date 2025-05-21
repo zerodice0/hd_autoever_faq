@@ -1,0 +1,39 @@
+.filter {
+	display: flex;
+	flex-wrap: wrap;
+	margin-bottom: var(--px-md);
+	margin-right: -2px;
+}
+.filter label {
+	position: relative;
+	display: flex;
+	height: var(--btn-md);
+	overflow: hidden;
+	margin-right: 2px;
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+}
+@media (max-width: 743px) {
+	.filter,
+	.filter label {
+		margin-right: 0;
+	}
+}
+.filter label > input {
+	position: absolute;
+	left: -100%;
+}
+.filter label > i {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-width: var(--btn-md);
+	padding: 0 var(--space-sm);
+	font-weight: 600;
+	letter-spacing: -0.4px;
+	border-radius: calc(var(--btn-md) / 2);
+}
+.filter label > input:checked + i {
+	color: #fff;
+	background-color: var(--midnight-900);
+}

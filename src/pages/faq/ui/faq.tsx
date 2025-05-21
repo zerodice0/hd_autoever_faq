@@ -1,9 +1,14 @@
 import '@/pages/faq/ui/content.css';
 import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
+import '@/pages/faq/ui/filter.css';
+import '@/pages/faq/ui/faq.css';
 
 import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
-import { useState } from 'react';
+import { useCategories } from '@/pages/faq/api/category_hooks';
+import type { Faq, FaqResponse } from '@/pages/faq/model/faq_model';
+import { useEffect, useState } from 'react';
+import { fetchFaqs } from '../api/faq_api';
 
 function Faq() {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
@@ -19,11 +24,43 @@ function Faq() {
     },
   ]);
 
-  const handleTabClick = (value: string) => {
+  const categories = useCategories(tabs.find((tab) => tab.isSelected)?.value || '');
+  
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
+  const [currentQuestion, setCurrentQuestion] = useState<string | null>(null);
+  const [faqs, setFaqs] = useState<Faq[]>([]);
+  const [selectedFaqId, setSelectedFaqId] = useState<number | null>(null);
+  
+  useEffect(() => {
+    fetchFaqs(
+      10, 0, 
+      tabs.find((tab) => tab.isSelected)?.value ?? '',
+      selectedCategory,
+      currentQuestion,
+    ).then((response: FaqResponse) => {
+      setFaqs([...faqs, ...response.data]);
+    });
+    
+  }, [currentQuestion, selectedCategory, tabs]);
+
+  const onClickTab = (value: string) => {
     setTabs(tabs.map((tab) => ({
       ...tab,
       isSelected: tab.value === value,
     })));
+    setSelectedCategory(null);
+  };
+
+  const onChangeCategory = (categoryID: string | null) => {
+    setSelectedCategory(categoryID);
+    setCurrentQuestion(null);
+    setFaqs([]);
+  };
+
+  const onClickFaq = (faqId: number) => {
+    const isSelectedFaqId = faqId === selectedFaqId;
+    const target = isSelectedFaqId ? null : faqId;
+    setSelectedFaqId(target);
   };
 
   return (
@@ -36,7 +73,7 @@ function Faq() {
       <ul className="tabs">
         {tabs.map((tab) => (
           <li key={tab.value} className={tab.isSelected ? 'active' : ''}>
-            <a onClick={() => handleTabClick(tab.value)}>
+            <a onClick={() => onClickTab(tab.value)}>
               <span>{tab.label}</span>
             </a>
           </li>
@@ -51,6 +88,38 @@ function Faq() {
           </div>
         </div>
       </form>
+      <div className="filter">
+        {
+          categories.map((category) => (
+            <label key={category.categoryID}>
+              <input type="radio"
+                name="filter"
+                checked={selectedCategory === category.categoryID}
+                onChange={() => onChangeCategory(category.categoryID)}
+              />
+              <i>{category.name}</i>
+            </label>
+          ))
+        }
+      </div>
+      <ul className="faq-list">
+        {faqs.map((faq) => (
+          <li key={faq.id} className={
+            selectedFaqId === faq.id ? 'active show' : ''
+            }>
+            <h4 className="a">
+              <button type="button" onClick={() => onClickFaq(faq.id)}>
+                <em>{faq.categoryName}</em>
+                <em>{faq.subCategoryName}</em>
+                <strong>{faq.question}</strong>
+              </button>
+            </h4>
+            <div className="q">
+              <div className="inner" dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
