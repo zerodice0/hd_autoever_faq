@@ -112,7 +112,7 @@ function Faq() {
             }>
             <h4 className="a">
               <button type="button" onClick={() => onClickFaq(faq.id)}>
-                <em>{faq.categoryName}</em>
+                {tabs.find((tab) => tab.isSelected)?.value === tabsType.serviceUsage}
                 <em>{faq.subCategoryName}</em>
                 <strong>{faq.question}</strong>
               </button>
