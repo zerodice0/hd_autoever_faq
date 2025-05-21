@@ -3,6 +3,7 @@ import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
 import '@/pages/faq/ui/filter.css';
 import '@/pages/faq/ui/faq.css';
+import '@/pages/faq/ui/list_more.css';
 
 import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
 import { useCategories } from '@/pages/faq/api/category_hooks';
@@ -130,7 +131,7 @@ function Faq() {
               }>
               <h4 className="a">
                 <button type="button" onClick={() => onClickFaq(faq.id)}>
-                  {tabs.find((tab) => tab.isSelected)?.value === tabsType.serviceUsage}
+                  {tabs.find((tab) => tab.isSelected)?.value === tabsType.serviceUsage && <em>{faq.categoryName}</em>}
                   <em>{faq.subCategoryName}</em>
                   <strong>{faq.question}</strong>
                 </button>
@@ -142,6 +143,7 @@ function Faq() {
           ))}
         </ul>
       }
+        <button type="button" className="list-more"><i></i>더보기</button>
     </div>
   );
 }
