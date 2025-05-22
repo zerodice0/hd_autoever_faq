@@ -4,15 +4,13 @@ import '@/App.css'
 
 import Header from '@/shared/header/ui/header'
 import Footer from '@/shared/footer/ui/footer'
-import Faq from '@/pages/faq/ui/faq'
+import Container from '@/pages/container/ui/container'
 
 function App() {
   return (
     <div className='app'>
       <Header />
-      <div className='container'>
-        <Faq />
-      </div>
+      <Container />
       <Footer />
     </div>
   )

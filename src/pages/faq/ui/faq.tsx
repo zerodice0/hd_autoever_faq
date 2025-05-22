@@ -12,10 +12,11 @@ import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
 import { fetchFaqs } from '@/pages/faq/api/faq_api';
 import { ProcessInfo } from '@/pages/faq/ui/process_info/process_info';
 import { AppInfo } from '@/pages/faq/ui/app_info/app_info';
+import type { FaqProps } from '@/pages/faq/model/faq_props';
 
 import { useEffect, useState } from 'react';
 
-function Faq() {
+function Faq({ navigateTo }: FaqProps) {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
     {
       label: '서비스 도입',
@@ -158,7 +159,7 @@ function Faq() {
             download="기아 비즈 서비스 제안서">
               <i className="ic download"></i><span>서비스 제안서 다운로드</span>
           </a>
-          <a className="btn-xxlg btn-tertiary" href="/Counsel">
+          <a className="btn-xxlg btn-tertiary" onClick={() => navigateTo('/Counsel')}>
             <i className="ic write"></i><span>상담문의 등록하기</span></a>
           <a className="btn-xxlg btn-tertiary" 
             href="https://pf.kakao.com/_xfLxjdb"
