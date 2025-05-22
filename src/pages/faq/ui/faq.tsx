@@ -71,7 +71,7 @@ function Faq({ navigateTo }: FaqProps) {
     setSelectedFaqId(target);
   };
 
-  const onClickSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const onClickSearch = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setCurrentQuestion(question);
     if (question.trim().length === 0) {
@@ -100,7 +100,7 @@ function Faq({ navigateTo }: FaqProps) {
           </li>
         ))}
       </ul>
-      <form>
+      <form onSubmit={onClickSearch}>
         <div className="search">
           <div className="input-wrap">
             <input type="text" 
@@ -112,7 +112,9 @@ function Faq({ navigateTo }: FaqProps) {
               onClick={() => setQuestion('')}>다시입력</button>
             <button type="button"
               className="submit"
-              onClick={onClickSearch}>검색</button>
+              onClick={onClickSearch}>
+                검색
+            </button>
           </div>
         </div>
       </form>
