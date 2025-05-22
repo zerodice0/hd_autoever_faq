@@ -9,8 +9,11 @@ import '@/pages/faq/ui/inquery_info.css';
 import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
 import { useCategories } from '@/pages/faq/api/category_hooks';
 import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
+import { fetchFaqs } from '@/pages/faq/api/faq_api';
+import { ProcessInfo } from '@/pages/faq/ui/process_info/process_info';
+import { AppInfo } from '@/pages/faq/ui/app_info/app_info';
+
 import { useEffect, useState } from 'react';
-import { fetchFaqs } from '../api/faq_api';
 
 function Faq() {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
@@ -138,7 +141,10 @@ function Faq() {
                 </button>
               </h4>
               <div className="q">
-                <div className="inner" dangerouslySetInnerHTML={{ __html: faq.answer }}></div>
+                <div className="inner" 
+                  // Sanitize-html 적용 필요함
+                  dangerouslySetInnerHTML={{ __html: faq.answer }}>  
+                </div>
               </div>
             </li>
           ))}
@@ -161,6 +167,8 @@ function Faq() {
               <span>카톡으로 문의하기 <em>ID : 기아 비즈</em></span>
           </a>
         </div>
+        <ProcessInfo />
+        <AppInfo />
     </div>
   );
 }
