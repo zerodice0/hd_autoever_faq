@@ -1,4 +1,4 @@
-import type { ProcessInfoModel } from "../model/process_info_model";
+import type { ProcessInfoModel } from "@/shared/process_info/model/process_info_model";
 
 export const ProcessInfoData: ProcessInfoModel[] = [
   {

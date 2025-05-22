@@ -6,14 +6,14 @@ import '@/pages/faq/ui/faq.css';
 import '@/pages/faq/ui/list_more.css';
 import '@/pages/faq/ui/inquery_info.css';
 
+import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
+import type { FaqProps } from '@/pages/faq/model/faq_props';
 import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
 import { useCategories } from '@/pages/faq/api/category_hooks';
-import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
 import { fetchFaqs } from '@/pages/faq/api/faq_api';
-import { ProcessInfo } from '@/pages/faq/ui/process_info/process_info';
+import { ProcessInfo } from '@/shared/process_info/ui/process_info';
 import { AppInfo } from '@/pages/faq/ui/app_info/app_info';
-import type { FaqProps } from '@/pages/faq/model/faq_props';
-
+import { ProcessInfoData } from '@/pages/faq/model/process_info_data';
 import { useEffect, useState } from 'react';
 
 function Faq({ navigateTo }: FaqProps) {
@@ -173,7 +173,8 @@ function Faq({ navigateTo }: FaqProps) {
               <span>카톡으로 문의하기 <em>ID : 기아 비즈</em></span>
           </a>
         </div>
-        <ProcessInfo />
+        <ProcessInfo title="이용 프로세스 안내"
+          processInfoData={ProcessInfoData} />
         <AppInfo />
     </div>
   );
