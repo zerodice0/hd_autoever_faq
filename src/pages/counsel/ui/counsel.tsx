@@ -6,7 +6,13 @@ import { useState } from 'react';
 
 export default function Counsel() {
   const [counselService, setCounselService] = useState<CounselService>('선택안함');
+  const [dropdownShow, setDropdownShow] = useState<boolean>(false);
   
+
+  const onClickTogglePersonalInformation = () => {
+    setDropdownShow(!dropdownShow);
+  }
+
   return (
     <div className='content'>
       <h1> 상담문의 <em>기아 비즈가 최고의 모빌리티 솔루션을 제안해드립니다.</em></h1>
@@ -109,8 +115,15 @@ export default function Counsel() {
                   <em>개인정보 수집 및 이용에 동의합니다.</em>
                 </i>
               </label>
-              <div className="dropdown-wrapper" data-ui-item="true" data-ui-clearable="true">
-                <button type="button" className="toggle" data-ui-click="dropdown-toggle">전문보기</button>
+              <div className={`dropdown-wrapper ${dropdownShow ? 'show active' : ''}`}
+                data-ui-item="true"
+                data-ui-clearable="true">
+                <button type="button"
+                  className="toggle"
+                  data-ui-click="dropdown-toggle"
+                  onClick={onClickTogglePersonalInformation}>
+                  전문보기
+                </button>
                 <div className="full-text" data-ui-target="true">
                   <div className="inner">
                     <h4 className="heading-info">개인정보 수집 이용 동의</h4>
