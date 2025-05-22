@@ -1,4 +1,4 @@
-import '@/pages/faq/ui/content.css';
+import '@/shared/common/ui/content.css';
 import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
 import '@/pages/faq/ui/filter.css';

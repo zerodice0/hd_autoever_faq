@@ -1,4 +1,6 @@
+import '@/shared/common/ui/content.css';
 import '@/pages/container/ui/board_white.css';
+
 import { COUNSEL_SERVICE, type CounselService } from '@/pages/counsel/model/counsel_service_model';
 import { ProcessInfo } from '@/shared/process_info/ui/process_info';
 import { ProcessInfoData } from '@/pages/counsel/model/process_info_data';
@@ -7,14 +9,18 @@ import { useState } from 'react';
 export default function Counsel() {
   const [counselService, setCounselService] = useState<CounselService>('선택안함');
   const [dropdownShow, setDropdownShow] = useState<boolean>(false);
-  
+  const [agreement, setAgreement] = useState<boolean>(false);
+
+  const onClickRegist = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+  }
 
   const onClickTogglePersonalInformation = () => {
     setDropdownShow(!dropdownShow);
   }
 
   return (
-    <div className='content'>
+    <div className='content reduced'>
       <h1> 상담문의 <em>기아 비즈가 최고의 모빌리티 솔루션을 제안해드립니다.</em></h1>
       <div>
         <form>
@@ -110,7 +116,9 @@ export default function Counsel() {
             (ex.업종, 사업장 주소, 현재 업무용 차량 운영 대수, 희망 계약차량 대수 등)" />
             <div className="agreement-box">
               <label className="checkbox">
-                <input type="checkbox" />
+                <input type="checkbox"
+                  checked={agreement}
+                  onChange={() => setAgreement(!agreement)} />
                 <i>
                   <em>개인정보 수집 및 이용에 동의합니다.</em>
                 </i>
@@ -142,11 +150,16 @@ export default function Counsel() {
               </div>
             </div>
           </div>
-          <div className="button-group submit">
-            <button className="btn-xlg btn-primary">
-              등록하기
-            </button>
-          </div>
+          {
+            agreement && <div className="button-group submit">
+              <button className="btn-xlg btn-primary"
+                type="submit"
+                onSubmit={onClickRegist}
+                onClick={onClickRegist}>
+                등록하기
+              </button>
+            </div>
+          }
         </form>
         <ProcessInfo title="상담 진행 안내"
           processInfoData={ProcessInfoData} />
