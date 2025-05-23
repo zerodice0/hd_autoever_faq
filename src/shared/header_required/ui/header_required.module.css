@@ -1,0 +1,23 @@
+.heading-4 {
+  align-items: center;
+  display: flex;
+  font-size: var(--heading-4);
+  margin: var(--heading-4-margin);
+  margin-block-start: 1.33em;
+  margin-block-end: 1.33em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-weight: bold;
+  unicode-bidi: isolate;
+  color: var(--midnight-900);
+  font-family: Kia Signature Fix, Arial, sans-serif, Hevetica;
+  line-height: var(--line-height-sm);
+}
+
+.heading-4>.required {
+  background: url(/images/ic_required.svg) no-repeat;
+  background-size: auto 100%;
+  font-size: 0;
+  height: calc(var(--heading-4) + 8px);
+  width: calc(var(--heading-4) + 8px);
+}
