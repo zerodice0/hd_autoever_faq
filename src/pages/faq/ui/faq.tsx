@@ -45,6 +45,7 @@ function Faq({ navigateTo }: FaqProps) {
   const limit = 10;
 
   const dialogAlertRef = useRef<HTMLDialogElement>(null);
+  const [dialogAlertMessage, setDialogAlertMessage] = useState<string>('검색어는 2자 이상 입력해주세요.');
 
   useEffect(() => {
     fetchFaqs(
@@ -56,6 +57,9 @@ function Faq({ navigateTo }: FaqProps) {
       setFaqs(response.data); // offset이 0이면 response.data를 설정
       setNextOffset(response.pageInformation.nextOffset);
       setTotalRecord(response.pageInformation.totalRecord);
+    }).catch(() => {
+      setDialogAlertMessage('검색 중 오류가 발생했습니다.');
+      dialogAlertRef.current?.showModal();
     });
     
   }, [currentQuestion, selectedCategory, tabs]);
@@ -88,6 +92,7 @@ function Faq({ navigateTo }: FaqProps) {
   const onClickSearch = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (question.trim().length < 2) {
+      setDialogAlertMessage('검색어는 2자 이상 입력해주세요.');
       dialogAlertRef.current?.showModal();
     } else {
       setCurrentQuestion(question);
@@ -115,6 +120,9 @@ function Faq({ navigateTo }: FaqProps) {
         setFaqs([...faqs, ...response.data]);
         setNextOffset(response.pageInformation.nextOffset);
         setTotalRecord(response.pageInformation.totalRecord);
+      }).catch(() => {
+        setDialogAlertMessage('검색 중 오류가 발생했습니다.');
+        dialogAlertRef.current?.showModal();
       });
     }
   }
@@ -218,7 +226,9 @@ function Faq({ navigateTo }: FaqProps) {
         <ProcessInfo title="이용 프로세스 안내"
           processInfoData={ProcessInfoData} />
         <AppInfo />
-        <DialogAlert ref={dialogAlertRef} message="검색어는 2자 이상 입력해주세요." />
+        <DialogAlert 
+          ref={dialogAlertRef}
+          message={dialogAlertMessage}/>
     </div>
   );
 }
