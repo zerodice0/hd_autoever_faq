@@ -109,21 +109,24 @@ function Faq({ navigateTo }: FaqProps) {
     navigateTo('/Counsel');
   }
 
-  const onClickMoreFaq = () => {
+  const onClickMoreFaq = async () => {
     if (faqs.length < totalRecord) {
-      fetchFaqs(
-        limit, nextOffset,
-        tabs.find((tab) => tab.isSelected)?.value ?? '',
-        selectedCategory,
-        currentQuestion,
-      ).then((response: FaqResponse) => {
+      try {
+        const response = await fetchFaqs(
+          limit, nextOffset,
+          tabs.find((tab) => tab.isSelected)?.value ?? '',
+          selectedCategory,
+          currentQuestion,
+        )
+  
         setFaqs([...faqs, ...response.data]);
         setNextOffset(response.pageInformation.nextOffset);
         setTotalRecord(response.pageInformation.totalRecord);
-      }).catch(() => {
+      } catch (error) {
+        console.error(error);
         setDialogAlertMessage('검색 중 오류가 발생했습니다.');
         dialogAlertRef.current?.showModal();
-      });
+      }
     }
   }
 
