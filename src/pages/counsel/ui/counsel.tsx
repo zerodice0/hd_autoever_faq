@@ -4,8 +4,9 @@ import { COUNSEL_SERVICE, type CounselService } from '@/pages/counsel/model/coun
 import { ProcessInfo } from '@/widgets/process_info/ui/process_info';
 import { ProcessInfoData } from '@/pages/counsel/model/process_info_data';
 import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
+import { RegistCounselResult } from '@/widgets/regist_counsel_result/ui/regist_counsel_result';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Counsel() {
   const [counselService, setCounselService] = useState<CounselService>('선택안함');
@@ -23,6 +24,10 @@ export default function Counsel() {
   const [dialogAlertMessage, setDialogAlertMessage] = useState<string>('');
 
   const [isRegisted, setIsRegisted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setDropdownShow(false);
+  }, [agreement]);
 
   const isInMinMaxLength = (value: string, min: number, max: number) => {
     return (min <= value.trim().length) && (value.trim().length < max);
@@ -74,21 +79,7 @@ export default function Counsel() {
       <h1> 상담문의 <em>기아 비즈가 최고의 모빌리티 솔루션을 제안해드립니다.</em></h1>
       {
         isRegisted ? (
-          <div>
-            <div className="board-write">
-              <div className="result-info">
-                <strong>기아 비즈 서비스를 <br/> 문의해 주셔서 감사합니다. </strong>
-                <p>등록해주신 문의는 접수완료되어 <br/> 기아 비즈 담당자에게 전달되었습니다. <br/> 담당자 확인 후 기재해주신 연락처로 빠르게 안내드리겠습니다. </p>
-              </div>
-            </div>
-            <div className="button-group">
-              <a className="btn-xlg btn-tertiary" 
-                href="https://wiblebiz.kia.com/News"
-                target="_self">
-                기아 비즈 새소식 보러가기
-              </a>
-            </div>
-          </div>
+          <RegistCounselResult />
         ) : (
           <div>
             <form>
