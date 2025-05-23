@@ -198,16 +198,16 @@ export default function Counsel() {
                 onClickTogglePersonalInformation={onClickTogglePersonalInformation}
               />
             </div>
-            {
-              agreement && <div className="button-group submit">
-                <button className="btn-xlg btn-primary"
-                  type="submit"
-                  onSubmit={onClickRegist}
-                  onClick={onClickRegist}>
-                  등록하기
-                </button>
+              <div className="button-group submit">
+                {
+                  agreement && <button className="btn-xlg btn-primary"
+                    type="submit"
+                    onSubmit={onClickRegist}
+                    onClick={onClickRegist}>
+                    등록하기
+                  </button>
+                }
               </div>
-            }
           </form>
           <ProcessInfo title="상담 진행 안내"
             processInfoData={ProcessInfoData} 
