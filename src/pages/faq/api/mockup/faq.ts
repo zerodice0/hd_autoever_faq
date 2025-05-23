@@ -32,7 +32,11 @@ export const faq = [
 
     let filteredFaqs: FaqData[] = faqs;
     if (question) {
-      filteredFaqs = faqs.filter((faq) => faq.question.includes(question) || faq.answer.includes(question));
+      filteredFaqs = faqs.filter(
+        (faq) => faq.question.toLowerCase().includes(question.toLowerCase())
+        // html 태그 제거
+        || faq.answer.replace(/<[^>]*>?/g, '').toLowerCase().includes(question.toLowerCase())
+      );
     }
     if (faqCategory) {
       let subCategory: string[] = [];
