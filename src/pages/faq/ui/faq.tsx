@@ -48,7 +48,7 @@ function Faq({ navigateTo }: FaqProps) {
 
   useEffect(() => {
     fetchFaqs(
-      limit, nextOffset,
+      limit, 0,
       tabs.find((tab) => tab.isSelected)?.value ?? '',
       selectedCategory,
       currentQuestion,
