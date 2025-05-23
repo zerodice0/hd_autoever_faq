@@ -14,7 +14,9 @@ import { fetchFaqs } from '@/pages/faq/api/faq_api';
 import { ProcessInfo } from '@/shared/process_info/ui/process_info';
 import { AppInfo } from '@/pages/faq/ui/app_info/app_info';
 import { ProcessInfoData } from '@/pages/faq/model/process_info_data';
-import { useEffect, useState } from 'react';
+import { DialogAlert } from '@/shared/dialog_alert/ui/dialog_alert';
+
+import { useEffect, useRef, useState } from 'react';
 
 function Faq({ navigateTo }: FaqProps) {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
@@ -38,14 +40,22 @@ function Faq({ navigateTo }: FaqProps) {
   const [faqs, setFaqs] = useState<FaqData[]>([]);
   const [selectedFaqId, setSelectedFaqId] = useState<number | null>(null);
 
+  const [nextOffset, setNextOffset] = useState<number>(0);
+  const [totalRecord, setTotalRecord] = useState<number>(0);
+  const limit = 10;
+
+  const dialogAlertRef = useRef<HTMLDialogElement>(null);
+
   useEffect(() => {
     fetchFaqs(
-      10, 0, 
+      limit, nextOffset,
       tabs.find((tab) => tab.isSelected)?.value ?? '',
       selectedCategory,
       currentQuestion,
     ).then((response: FaqResponse) => {
       setFaqs(response.data); // offset이 0이면 response.data를 설정
+      setNextOffset(response.pageInformation.nextOffset);
+      setTotalRecord(response.pageInformation.totalRecord);
     });
     
   }, [currentQuestion, selectedCategory, tabs]);
@@ -57,12 +67,16 @@ function Faq({ navigateTo }: FaqProps) {
       isSelected: tab.value === value,
     })));
     setSelectedCategory(null);
+    setNextOffset(0);
+    setTotalRecord(0);
   };
 
   const onChangeCategory = (categoryID: string | null) => {
     setSelectedFaqId(null);
     setCurrentQuestion(question);
     setSelectedCategory(categoryID);
+    setNextOffset(0);
+    setTotalRecord(0);
   };
 
   const onClickFaq = (faqId: number) => {
@@ -73,15 +87,36 @@ function Faq({ navigateTo }: FaqProps) {
 
   const onClickSearch = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setCurrentQuestion(question);
-    if (question.trim().length === 0) {
-      setSelectedCategory(null);
+    if (question.trim().length < 2) {
+      dialogAlertRef.current?.showModal();
+    } else {
+      setCurrentQuestion(question);
+      if (question.trim().length === 0) {
+        setSelectedCategory(null);
+        setNextOffset(0);
+        setTotalRecord(0);
+      }
     }
   }
 
   const onClickCounsel = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigateTo('/Counsel');
+  }
+
+  const onClickMoreFaq = () => {
+    if (faqs.length < totalRecord) {
+      fetchFaqs(
+        limit, nextOffset,
+        tabs.find((tab) => tab.isSelected)?.value ?? '',
+        selectedCategory,
+        currentQuestion,
+      ).then((response: FaqResponse) => {
+        setFaqs([...faqs, ...response.data]);
+        setNextOffset(response.pageInformation.nextOffset);
+        setTotalRecord(response.pageInformation.totalRecord);
+      });
+    }
   }
 
   return (
@@ -158,7 +193,12 @@ function Faq({ navigateTo }: FaqProps) {
           ))}
         </ul>
       }
-        <button type="button" className="list-more"><i></i>더보기</button>
+      { 
+        (nextOffset < totalRecord) && 
+        <button type="button" className="list-more" onClick={onClickMoreFaq}>
+          <i></i>더보기
+        </button>
+      }
         <h2 className="heading-2">서비스 문의</h2>
         <div className="inquiry-info">
           <a className="btn-xxlg btn-tertiary" 
@@ -178,6 +218,7 @@ function Faq({ navigateTo }: FaqProps) {
         <ProcessInfo title="이용 프로세스 안내"
           processInfoData={ProcessInfoData} />
         <AppInfo />
+        <DialogAlert ref={dialogAlertRef} message="검색어는 2자 이상 입력해주세요." />
     </div>
   );
 }
