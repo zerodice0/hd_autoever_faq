@@ -12,7 +12,7 @@ const Header = () => {
         <nav>
           <ul>
             <li><a href='https://wiblebiz.kia.com/Guide/'>서비스 소개</a></li>
-            <li><a href='/'>자주 묻는 질문</a></li>
+            <li><a href='/FAQ'>자주 묻는 질문</a></li>
             <li><a href='https://wiblebiz.kia.com/News/'>새소식</a></li>
             <li><a href='https://wiblebiz.kia.com/Counsel/'>상담문의</a></li>
           </ul>
