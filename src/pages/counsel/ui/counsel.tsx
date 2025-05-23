@@ -7,6 +7,7 @@ import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
 import { RegistCounselResult } from '@/widgets/regist_counsel_result/ui/regist_counsel_result';
 
 import { useEffect, useRef, useState } from 'react';
+import { HeaderRequired } from '@/shared/header_required/ui/header_required';
 
 export default function Counsel() {
   const [counselService, setCounselService] = useState<CounselService>('선택안함');
@@ -84,42 +85,37 @@ export default function Counsel() {
           <div>
             <form>
               <div className="board-write">
-              <h4 className="heading-4">회사명 <i className="required">필수</i>
-              </h4>
+              <HeaderRequired title="회사명" isRequired={true} />
               <input type="text"
                 placeholder="소속된 회사명을 적어주세요"
                 value={companyName}
                 onChange={(e) => setCompanyName(e.target.value)}
               />
-              <h4 className="heading-4">부서명 <i className="required">필수</i>
-              </h4>
+              <HeaderRequired title="부서명" isRequired={true} />
               <input type="text"
                 placeholder="소속된 부서명을 적어주세요"
                 value={departmentName}
                 onChange={(e) => setDepartmentName(e.target.value)}
               />
-              <h4 className="heading-4">성함 <i className="required">필수</i>
-              </h4>
+              <HeaderRequired title="성함" isRequired={true} />
               <input type="text"
                 placeholder="담당자 성함을 적어주세요" 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
-              <h4 className="heading-4">이메일 <i className="required">필수</i>
-              </h4>
+              <HeaderRequired title="이메일" isRequired={true} />
               <input type="text"
                 placeholder="담당자 이메일 주소를 적어주세요"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <h4 className="heading-4">연락처 <i className="required">필수</i>
-              </h4>
+              <HeaderRequired title="연락처" isRequired={true} />
               <input type="text"
                 placeholder="담당자 연락처를 적어주세요"
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
               />
-              <h4 className="heading-4">문의 서비스 선택</h4>
+              <HeaderRequired title="문의 서비스 선택" isRequired={false} />
               <div className="check-group radio-summary">
                 <input id="선택안함" 
                   name="package" 
@@ -189,8 +185,7 @@ export default function Counsel() {
                   <strong>하이브리드 패키지</strong>는 현재 보유 차량과 친환경차를 함께 이용하면서 차량관리, 관리자 Web, 이용자 App, 고객센터, 보험 및 사고처리 서비스를 부담없는 가격으로 이용하실 수 있습니다.
                 </p>
               </div>
-              <h4 className="heading-4">문의내용 <i className="required">필수</i>
-              </h4>
+              <HeaderRequired title="문의내용" isRequired={true}/>
               <textarea placeholder="궁금하신 내용과 참고사항을 입력해주세요
                 (ex.업종, 사업장 주소, 현재 업무용 차량 운영 대수, 희망 계약차량 대수 등)" 
                 value={question}
