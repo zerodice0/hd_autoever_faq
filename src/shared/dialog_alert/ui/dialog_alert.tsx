@@ -1,6 +1,8 @@
 import '@/shared/dialog_alert/ui/dialog_alert.css';
 
-function DialogAlert(ref: React.RefObject<HTMLDialogElement | null>, message: string) {
+import type { DialogAlertProps } from '@/shared/dialog_alert/model/dialog_alert_model';
+
+export function DialogAlert({ ref, message }: DialogAlertProps) {
   const onClickDialogClose = () => {
     ref.current?.close();
   }
@@ -20,5 +22,3 @@ function DialogAlert(ref: React.RefObject<HTMLDialogElement | null>, message: st
     </dialog>
   );
 }
-
-export default DialogAlert;
