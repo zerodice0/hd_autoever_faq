@@ -1,4 +1,4 @@
-import '@/widgets/container/ui/board_white.css';
+import boardWhiteStyles from '@/pages/counsel/ui/board_white.module.css';
 
 import { COUNSEL_SERVICE, type CounselService } from '@/pages/counsel/model/counsel_service_model';
 import { ProcessInfo } from '@/widgets/process_info/ui/process_info';
@@ -84,7 +84,7 @@ export default function Counsel() {
         ) : (
           <div>
             <form>
-              <div className="board-write">
+              <div className={boardWhiteStyles.boardWrite}>
               <HeaderRequired title="회사명" isRequired={true} />
               <input type="text"
                 placeholder="소속된 회사명을 적어주세요"

@@ -1,4 +1,4 @@
-import '@/widgets/container/ui/container.css';
+import containerStyles from '@/widgets/container/ui/container.module.css';
 import '@/shared/styles/common.css';
 
 import Faq from '@/pages/faq/ui/faq';
@@ -40,7 +40,7 @@ export default function Container() {
   }
 
   return (
-    <div className="container">
+    <div className={containerStyles.container}>
       {currentPage === '/FAQ' && <Faq navigateTo={navigateTo} />}
       {currentPage === '/Counsel' && <Counsel />}
     </div>
