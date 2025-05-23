@@ -1,5 +1,5 @@
-import type { ProcessInfoModel } from "@/shared/process_info/model/process_info_model";
-import '@/shared/process_info/ui/process_info.css';
+import type { ProcessInfoModel } from "@/widgets/process_info/model/process_info_model";
+import '@/widgets/process_info/ui/process_info.css';
 
 export function ProcessInfoStep(
   {

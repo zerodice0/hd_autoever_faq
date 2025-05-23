@@ -1,4 +1,4 @@
-import '@/shared/common/ui/content.css';
+import '@/shared/styles/content.css';
 import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
 import '@/pages/faq/ui/filter.css';
@@ -11,10 +11,10 @@ import type { FaqProps } from '@/pages/faq/model/faq_props';
 import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_model';
 import { useCategories } from '@/pages/faq/api/category_hooks';
 import { fetchFaqs } from '@/pages/faq/api/faq_api';
-import { ProcessInfo } from '@/shared/process_info/ui/process_info';
+import { ProcessInfo } from '@/widgets/process_info/ui/process_info';
 import { AppInfo } from '@/pages/faq/ui/app_info/app_info';
 import { ProcessInfoData } from '@/pages/faq/model/process_info_data';
-import { DialogAlert } from '@/shared/dialog_alert/ui/dialog_alert';
+import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
 
 import { useEffect, useRef, useState } from 'react';
 

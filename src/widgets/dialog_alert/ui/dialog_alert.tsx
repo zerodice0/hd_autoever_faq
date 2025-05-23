@@ -1,6 +1,6 @@
-import '@/shared/dialog_alert/ui/dialog_alert.css';
+import '@/widgets/dialog_alert/ui/dialog_alert.css';
 
-import type { DialogAlertProps } from '@/shared/dialog_alert/model/dialog_alert_model';
+import type { DialogAlertProps } from '@/widgets/dialog_alert/model/dialog_alert_model';
 
 export function DialogAlert({ ref, message }: DialogAlertProps) {
   const onClickDialogClose = () => {

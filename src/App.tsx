@@ -1,10 +1,10 @@
-import '@/shared/common/ui/init.css'
-import '@/shared/common/ui/common.css'
+import '@/shared/styles/init.css'
+import '@/shared/styles/common.css'
 import '@/App.css'
 
-import Header from '@/shared/header/ui/header'
-import Footer from '@/shared/footer/ui/footer'
-import Container from '@/pages/container/ui/container'
+import Header from '@/widgets/header/ui/header'
+import Footer from '@/widgets/footer/ui/footer'
+import Container from '@/widgets/container/ui/container'
 
 function App() {
   return (

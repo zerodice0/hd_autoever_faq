@@ -1,5 +1,5 @@
-import '@/pages/container/ui/container.css';
-import '@/shared/common/ui/common.css';
+import '@/widgets/container/ui/container.css';
+import '@/shared/styles/common.css';
 
 import Faq from '@/pages/faq/ui/faq';
 import Counsel from '@/pages/counsel/ui/counsel';
