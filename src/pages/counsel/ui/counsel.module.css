@@ -1,0 +1,6 @@
+@import '@/shared/styles/content.css';
+
+.content {
+  margin: 0 auto;
+	max-width: 816px;
+}

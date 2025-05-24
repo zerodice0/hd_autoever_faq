@@ -1,4 +1,5 @@
 import boardWhiteStyles from '@/pages/counsel/ui/board_white.module.css';
+import counselStyles from '@/pages/counsel/ui/counsel.module.css';
 
 import { COUNSEL_SERVICE, type CounselService } from '@/pages/counsel/model/counsel_service_model';
 import { ProcessInfo } from '@/widgets/process_info/ui/process_info';
@@ -77,7 +78,7 @@ export default function Counsel() {
   }
 
   return (
-    <div className='content reduced'>
+    <div className={counselStyles.content}>
       <h1> 상담문의 <em>기아 비즈가 최고의 모빌리티 솔루션을 제안해드립니다.</em></h1>
       {
         isRegisted ? (
