@@ -25,23 +25,8 @@
 .heading-info > em {
 	color: var(--midnight-900);
 }
-.btn-xlg {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	min-width: 8em;
-	height: var(--btn-xlg);
-	padding: 0 1em;
-	font-size: calc(1rem + 2px);
-	font-weight: 600;
-}
 button:disabled {
 	opacity: 0.4;
-}
-@media (hover: hover) and (pointer: fine) {
-	.btn-tertiary:not(:disabled):hover {
-		background-color: var(--gray-50);
-	}
 }
 i.ic {
 	flex-shrink: 0;

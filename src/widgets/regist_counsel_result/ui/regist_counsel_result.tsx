@@ -1,3 +1,5 @@
+import { XlargeTertiaryButton } from "@/shared/xlarge_tetiary_button/ui/xlarge_tertiary_button";
+
 export function RegistCounselResult() {
   return (
     <div>
@@ -8,11 +10,10 @@ export function RegistCounselResult() {
         </div>
       </div>
       <div className="button-group">
-        <a className="btn-xlg btn-tertiary" 
-          href="https://wiblebiz.kia.com/News"
-          target="_self">
-          기아 비즈 새소식 보러가기
-        </a>
+        <XlargeTertiaryButton 
+          onClick={() => window.open('https://wiblebiz.kia.com/News', '_self')}
+          buttonText="기아 비즈 새소식 보러가기"
+        />
       </div>
     </div>
   );
