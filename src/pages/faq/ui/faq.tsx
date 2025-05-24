@@ -1,8 +1,6 @@
 import '@/shared/styles/content.css';
 import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
-// import '@/pages/faq/ui/filter.css';
-import '@/pages/faq/ui/faq.css';
 import '@/pages/faq/ui/list_more.css';
 
 import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
@@ -18,6 +16,7 @@ import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
 import { useEffect, useRef, useState } from 'react';
 import { InqueryInfo } from '@/widgets/inquery_info/ui/inquery_info';
 import { FaqFilter } from '@/widgets/faq_filter/ui/faq_filter';
+import { FaqResult } from '@/widgets/faq_result/ui/faq_result';
 
 function Faq({ navigateTo }: FaqProps) {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
@@ -170,7 +169,15 @@ function Faq({ navigateTo }: FaqProps) {
         selectedCategory={selectedCategory}
         onChangeCategory={onChangeCategory}
       />
-      {
+      <FaqResult
+        faqs={faqs}
+        selectedFaqId={selectedFaqId}
+        onClickFaq={onClickFaq}
+        totalRecord={totalRecord}
+        onClickMoreFaq={onClickMoreFaq}
+        tabs={tabs}
+      />
+      {/* {
         faqs.length === 0 ? <div className="no-data">
             <p>검색결과가 없습니다.</p>
           </div>
@@ -201,7 +208,7 @@ function Faq({ navigateTo }: FaqProps) {
         <button type="button" className="list-more" onClick={onClickMoreFaq}>
           <i></i>더보기
         </button>
-      }
+      } */}
         <h2 className="heading-2">서비스 문의</h2>
         <InqueryInfo onClickCounsel={onClickCounsel} />
         <ProcessInfo title="이용 프로세스 안내"
