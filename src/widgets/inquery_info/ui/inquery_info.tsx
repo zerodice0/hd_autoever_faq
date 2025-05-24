@@ -9,16 +9,19 @@ export function InqueryInfo({
   return (
     <div className={styles.inqueryInfo}>
       <XxlargeTertiaryButton
+        buttonIcon="download"
         onClick={() => window.open('/documents/proposal.pdf', '_blank', 'noopener,noreferrer')}
         buttonText="서비스 제안서 다운로드"
         buttonDescription={null}
       />
       <XxlargeTertiaryButton
+        buttonIcon="write"
         onClick={onClickCounsel}
         buttonText="상담문의 등록하기"
         buttonDescription={null}
       />
       <XxlargeTertiaryButton
+        buttonIcon="talk"
         onClick={() => window.open('https://pf.kakao.com/_xfLxjdb', '_blank', 'noopener,noreferrer')}
         buttonText="카톡으로 문의하기"
         buttonDescription="ID : 기아 비즈"

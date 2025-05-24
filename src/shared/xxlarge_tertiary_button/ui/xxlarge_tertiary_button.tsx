@@ -6,12 +6,15 @@ import type { XxlargeTertiaryButtonProps } from '@/shared/xxlarge_tertiary_butto
 export function XxlargeTertiaryButton({
   onClick,
   buttonText,
-  buttonDescription
+  buttonDescription,
+  buttonIcon
 }: XxlargeTertiaryButtonProps) {
+  const iconClass = xxlargeButtonStyles[buttonIcon];
+
   return (
     <a className={`${xxlargeButtonStyles.button} ${tertiaryButtonStyles.btnTertiary}`} 
       onClick={onClick}>
-      <i className={`${xxlargeButtonStyles.ic} ${xxlargeButtonStyles.talk}`}></i>
+      <i className={`${xxlargeButtonStyles.ic} ${iconClass}`}></i>
         <span>{buttonText} {buttonDescription && <em>{buttonDescription}</em>}</span>
     </a>
   )
