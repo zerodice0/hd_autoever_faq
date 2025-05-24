@@ -1,5 +1,4 @@
-import boardWhiteStyles from '@/pages/counsel/ui/board_white.module.css';
-import counselStyles from '@/pages/counsel/ui/counsel.module.css';
+import styles from '@/pages/counsel/ui/counsel.module.css';
 
 import { COUNSEL_SERVICE, type CounselService } from '@/pages/counsel/model/counsel_service_model';
 import { ProcessInfo } from '@/widgets/process_info/ui/process_info';
@@ -80,7 +79,7 @@ export default function Counsel() {
   }
 
   return (
-    <div className={counselStyles.content}>
+    <div className={styles.content}>
       <h1> 상담문의 <em>기아 비즈가 최고의 모빌리티 솔루션을 제안해드립니다.</em></h1>
       {
         isRegisted ? (
@@ -88,7 +87,7 @@ export default function Counsel() {
         ) : (
           <div>
             <form>
-              <div className={boardWhiteStyles.boardWrite}>
+              <div className={styles.boardWrite}>
               <HeaderRequired title="회사명" isRequired={true} />
               <input type="text"
                 placeholder="소속된 회사명을 적어주세요"
@@ -202,7 +201,7 @@ export default function Counsel() {
                 onClickTogglePersonalInformation={onClickTogglePersonalInformation}
               />
             </div>
-              <div className={`${counselStyles.buttonGroup} ${counselStyles.submit}`}>
+              <div className={`${styles.buttonGroup} ${styles.submit}`}>
                 {
                   agreement && <XlargePrimaryButton 
                     onClick={onClickRegist}
