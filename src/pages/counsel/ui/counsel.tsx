@@ -201,12 +201,6 @@ export default function Counsel() {
             </div>
               <div className="button-group submit">
                 {
-                  // agreement && <button className="btn-xlg btn-primary"
-                  //   type="submit"
-                  //   onSubmit={onClickRegist}
-                  //   onClick={onClickRegist}>
-                  //   등록하기
-                  // </button>
                   agreement && <XlargePrimaryButton 
                     onClick={onClickRegist}
                     buttonText="등록하기"
