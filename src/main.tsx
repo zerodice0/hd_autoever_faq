@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 
 const mockWorker = async () => {
-  if (import.meta.env.MODE === "development") {
+  // if (import.meta.env.MODE === "development") {
     const { worker } = await import("./test/worker.ts");
     await worker.start();
-  }
+  // }
 }
 
 mockWorker().then(() => {
