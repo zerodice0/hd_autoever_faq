@@ -1,0 +1,91 @@
+.quickUtil {
+	z-index: 99;
+	position: sticky;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	pointer-events: none;
+}
+
+.quickUtil > .inner {
+	position: absolute;
+	right: 32px;
+	bottom: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	--size: 56px;
+	width: var(--size);
+	transform: scale3d(1);
+	transform-origin: 100% 100%;
+}
+
+.quickUtil > .inner > button {
+	position: relative;
+	pointer-events: all;
+	width: var(--size);
+	height: var(--size);
+	margin-top: 8px;
+	font-size: 0;
+	background-color: #fff;
+	background-repeat: no-repeat;
+	background-position: 50%;
+	background-size: 28px;
+	border-radius: 50%;
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.12);
+	opacity: 1;
+	transition-property: width, height, margin, background-position, opacity;
+	transition-duration: 0.4s;
+	transition-timing-function: var(--cubic-bezier-primary);
+}
+
+.quickUtil > .inner > button:active {
+	background-position: 50% 60%;
+	transition: all 0s;
+}
+
+.quickUtil > .inner > button.top {
+	background-image: url(/images/ic_top.svg);
+}
+
+.quickUtil:not(.active) > .inner > button.top,
+.quickUtil > .inner > button.top,
+.quickUtil > .inner > button.top {
+	width: 0;
+	height: 0;
+	margin: 0;
+	background-position: 50% 100%;
+	opacity: 0;
+	transition-property: width, height, margin, background-position, opacity;
+	transition-duration: 0.4s;
+	transition-timing-function: var(--cubic-bezier-primary);
+}
+
+@media (max-width: 743px) {
+	.quickUtil > .inner {
+		right: 16px;
+		bottom: 24px;
+		--size: 40px;
+	}
+	.quickUtil > .inner > button {
+		background-size: 20px;
+	}
+}
+
+@media (min-width: 744px) and (max-width: 1023px) {
+	.quickUtil > .inner {
+		right: 24px;
+		bottom: 32px;
+		--size: 48px;
+	}
+	.quickUtil > .inner > button {
+		background-size: 24px;
+	}
+}
+
+@media (min-width: 1024px) and (max-width: 1439px) {
+	.quickUtil > .inner {
+		right: 24px;
+		bottom: 32px;
+	}
+}
