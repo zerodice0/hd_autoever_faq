@@ -1,4 +1,4 @@
-import styles from '@/shared/xxlarge_tertiary_button/ui/xxlarge_tertitary_button.module.css';
+import styles from '@/shared/xxlarge_tertiary_button/ui/xxlarge_tertiary_button.module.css';
 
 import type { XxlargeTertiaryButtonProps } from '@/shared/xxlarge_tertiary_button/model/xxlarge_tertiary_button_props';
 
