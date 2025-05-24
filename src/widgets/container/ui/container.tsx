@@ -42,11 +42,20 @@ export default function Container() {
     }
   }, []);
 
+  const currentPageComponent = () => {
+    let component = <Faq navigateTo={navigateTo} />;
+    
+    if (currentPage === '/Counsel') {
+      component = <Counsel />;
+    } 
+    
+    return component;
+  };
+
   return (
     <>
       <div className={containerStyles.container}>
-        {currentPage === '/FAQ' && <Faq navigateTo={navigateTo} />}
-        {currentPage === '/Counsel' && <Counsel />}
+        {currentPageComponent()}
       </div>
       <QuickUtil />
     </>
