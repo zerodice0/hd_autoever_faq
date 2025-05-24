@@ -1,0 +1,54 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	height: var(--btn-xxlg);
+	min-height: var(--btn-xxlg);
+	padding: 0 1.4em;
+	font-size: var(--btn-xxlg-size);
+	font-weight: 600;
+  
+  flex: 1;
+	margin: 0 calc(var(--space-md) / 2);
+}
+
+.button > span {
+	line-height: var(--line-height-sm);
+}
+
+.button > span > em {
+	display: block;
+	font-size: 14px;
+	font-weight: 400;
+	color: var(--gray-500);
+}
+
+@media (max-width: 743px) {
+	.button {
+		justify-content: flex-start;
+	}
+	.button:not(:first-child) {
+		margin-top: 12px;
+	}
+}
+
+.ic {
+	flex-shrink: 0;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+  width: var(--ic-lg);
+	height: var(--ic-lg);
+	margin-right: 8px;
+}
+
+.ic.write {
+	background-image: url(/images/ic_write.svg);
+}
+
+.ic.talk {
+	background-image: url(/images/ic_talk.svg);
+}
+
+.ic.download {
+	background-image: url(/images/ic_download.svg);
+}

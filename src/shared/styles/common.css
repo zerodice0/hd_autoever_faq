@@ -35,30 +35,6 @@
 	font-size: calc(1rem + 2px);
 	font-weight: 600;
 }
-.btn-xxlg {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	height: var(--btn-xxlg);
-	min-height: var(--btn-xxlg);
-	padding: 0 1.4em;
-	font-size: var(--btn-xxlg-size);
-	font-weight: 600;
-}
-.btn-xxlg > .ic {
-	width: var(--ic-lg);
-	height: var(--ic-lg);
-	margin-right: 8px;
-}
-.btn-xxlg > span {
-	line-height: var(--line-height-sm);
-}
-.btn-xxlg > span > em {
-	display: block;
-	font-size: 14px;
-	font-weight: 400;
-	color: var(--gray-500);
-}
 .btn-primary {
 	background-color: var(--midnight-900);
 	color: #fff;
@@ -66,10 +42,6 @@
 .btn-secondary {
 	background-color: var(--midnight-900);
 	color: #fff;
-}
-.btn-tertiary {
-	background-color: #fff;
-	border: 1px solid var(--midnight-900);
 }
 button:disabled {
 	opacity: 0.4;

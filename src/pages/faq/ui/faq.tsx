@@ -4,7 +4,6 @@ import '@/pages/faq/ui/search.css';
 import '@/pages/faq/ui/filter.css';
 import '@/pages/faq/ui/faq.css';
 import '@/pages/faq/ui/list_more.css';
-import '@/pages/faq/ui/inquery_info.css';
 
 import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
 import type { FaqProps } from '@/pages/faq/model/faq_props';
@@ -17,6 +16,7 @@ import { ProcessInfoData } from '@/pages/faq/model/process_info_data';
 import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
 
 import { useEffect, useRef, useState } from 'react';
+import { InqueryInfo } from '@/widgets/inquery_info/ui/inquery_info';
 
 function Faq({ navigateTo }: FaqProps) {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
@@ -211,21 +211,7 @@ function Faq({ navigateTo }: FaqProps) {
         </button>
       }
         <h2 className="heading-2">서비스 문의</h2>
-        <div className="inquiry-info">
-          <a className="btn-xxlg btn-tertiary" 
-            href="/documents/proposal.pdf"
-            download="기아 비즈 서비스 제안서">
-              <i className="ic download"></i><span>서비스 제안서 다운로드</span>
-          </a>
-          <a className="btn-xxlg btn-tertiary" onClick={onClickCounsel}>
-            <i className="ic write"></i><span>상담문의 등록하기</span></a>
-          <a className="btn-xxlg btn-tertiary" 
-            href="https://pf.kakao.com/_xfLxjdb"
-            target="_blank" rel="noreferrer">
-            <i className="ic talk"></i>
-              <span>카톡으로 문의하기 <em>ID : 기아 비즈</em></span>
-          </a>
-        </div>
+        <InqueryInfo onClickCounsel={onClickCounsel} />
         <ProcessInfo title="이용 프로세스 안내"
           processInfoData={ProcessInfoData} />
         <AppInfo />
