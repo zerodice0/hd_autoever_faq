@@ -62,15 +62,7 @@ i.ic {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 }
-i.ic.download {
-	background-image: url(/images/ic_download.svg);
-}
-i.ic.write {
-	background-image: url(/images/ic_write.svg);
-}
-i.ic.talk {
-	background-image: url(/images/ic_talk.svg);
-}
+
 i.ic.process-1 {
 	background-image: url(/images/ic_process01.svg);
 }
