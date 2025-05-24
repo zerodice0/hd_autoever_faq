@@ -15,11 +15,16 @@ export default function Container() {
     window.history.pushState({page: path}, '', path);
   }, []);
 
-  // 페이지 이동시 스크롤을 상단으로 이동하기 위한 useEffect
+  // 페이지 이동시 초기화
   useEffect(() => {
+    // 페이지 이동시 스크롤을 최상단으로 이동
     requestAnimationFrame(() => {
       window.scrollTo({top: 0, behavior: 'smooth'});
     });
+
+    // 페이지 이동시 브라우저 탭 타이틀 변경
+    const title = currentPage === '/Counsel' ? '상담 문의' : '서비스 도입 FAQ';
+    document.title = `${title} | 기아 비즈(Kia Biz) - 친환경 모빌리티 서비스`;
   }, [currentPage]);
 
   // 이벤트를 처리하기 위한 useEffect
