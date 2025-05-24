@@ -8,6 +8,7 @@ import { RegistCounselResult } from '@/widgets/regist_counsel_result/ui/regist_c
 import { useEffect, useRef, useState } from 'react';
 import { HeaderRequired } from '@/shared/header_required/ui/header_required';
 import { AgreementBox } from '@/widgets/agreement_box/ui/agreement_box';
+import { XlargePrimaryButton } from '@/shared/xlarge_primary_button/ui/xlarge_primary_button';
 
 export default function Counsel() {
   const [counselService, setCounselService] = useState<CounselService>('선택안함');
@@ -200,12 +201,16 @@ export default function Counsel() {
             </div>
               <div className="button-group submit">
                 {
-                  agreement && <button className="btn-xlg btn-primary"
-                    type="submit"
-                    onSubmit={onClickRegist}
-                    onClick={onClickRegist}>
-                    등록하기
-                  </button>
+                  // agreement && <button className="btn-xlg btn-primary"
+                  //   type="submit"
+                  //   onSubmit={onClickRegist}
+                  //   onClick={onClickRegist}>
+                  //   등록하기
+                  // </button>
+                  agreement && <XlargePrimaryButton 
+                    onClick={onClickRegist}
+                    buttonText="등록하기"
+                  />
                 }
               </div>
           </form>

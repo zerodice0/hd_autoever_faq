@@ -1,0 +1,19 @@
+.button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 8em;
+	height: var(--btn-xlg);
+	padding: 0 1em;
+	font-size: calc(1rem + 2px);
+	font-weight: 600;
+  background-color: var(--midnight-900);
+  color: #fff;
+}
+
+@media (hover: hover) and (pointer: fine) {
+	.button:not(:disabled):hover {
+		background-color: var(--gray-700);
+	}
+}
+
