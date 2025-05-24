@@ -1,5 +1,4 @@
-import xxlargeButtonStyles from './xxlarge_button.module.css';
-import tertiaryButtonStyles from './tertiary_button.module.css';
+import styles from '@/shared/xxlarge_tertiary_button/ui/xxlarge_tertitary_button.module.css';
 
 import type { XxlargeTertiaryButtonProps } from '@/shared/xxlarge_tertiary_button/model/xxlarge_tertiary_button_props';
 
@@ -9,12 +8,12 @@ export function XxlargeTertiaryButton({
   buttonDescription,
   buttonIcon
 }: XxlargeTertiaryButtonProps) {
-  const iconClass = xxlargeButtonStyles[buttonIcon];
+  const iconClass = styles[buttonIcon];
 
   return (
-    <a className={`${xxlargeButtonStyles.button} ${tertiaryButtonStyles.btnTertiary}`} 
+    <a className={styles.button}
       onClick={onClick}>
-      <i className={`${xxlargeButtonStyles.ic} ${iconClass}`}></i>
+      <i className={`${styles.ic} ${iconClass}`}></i>
         <span>{buttonText} {buttonDescription && <em>{buttonDescription}</em>}</span>
     </a>
   )

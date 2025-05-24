@@ -1,5 +1,5 @@
 .button {
-	display: inline-flex;
+  display: inline-flex;
 	align-items: center;
 	justify-content: center;
 	height: var(--btn-xxlg);
@@ -7,20 +7,27 @@
 	padding: 0 1.4em;
 	font-size: var(--btn-xxlg-size);
 	font-weight: 600;
-  
   flex: 1;
 	margin: 0 calc(var(--space-md) / 2);
+  background-color: #fff;
+	border: 1px solid var(--midnight-900);
 }
 
 .button > span {
-	line-height: var(--line-height-sm);
+  line-height: var(--line-height-sm);
 }
 
 .button > span > em {
-	display: block;
+  display: block;
 	font-size: 14px;
 	font-weight: 400;
 	color: var(--gray-500);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:not(:disabled):hover {
+    background-color: var(--gray-50);
+  }
 }
 
 @media (max-width: 743px) {
@@ -52,3 +59,4 @@
 .ic.download {
 	background-image: url(/images/ic_download.svg);
 }
+
