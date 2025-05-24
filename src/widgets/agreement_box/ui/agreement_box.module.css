@@ -1,4 +1,4 @@
-.agreement-box {
+.agreementBox {
 	position: relative;
 	display: flex;
 	justify-content: space-between;
@@ -7,7 +7,7 @@
 	background-color: var(--gray-10);
 	border: 1px solid var(--gray-10);
 }
-.dropdown-wrapper {
+.dropdownWrapper {
 	position: static;
 }
 .toggle {
@@ -29,7 +29,7 @@
 .active .toggle:after {
 	transform: rotate(180deg);
 }
-.full-text {
+.fullText {
 	z-index: 999;
 	position: absolute;
 	right: 0;
@@ -42,7 +42,7 @@
 	background-color: #fff;
 	border: 1px solid var(--midnight-900);
 }
-.heading-info {
+.headingInfo {
 	margin-top: 0;
 	padding-bottom: var(--space-xsm2);
 	border-bottom: 2px solid var(--midnight-900);
@@ -96,17 +96,17 @@
   line-height: var(--input-md);
 }
 @media (max-width: 743px) {
-	.agreement-box {
+	.agreementBox {
 		flex-direction: column;
 		align-items: flex-end;
 	}
-	.agreement-box > .checkbox {
+	.agreementBox > .checkbox {
 		min-width: 100%;
 	}
 	.toggle {
 		font-size: 14px;
 	}
-	.full-text {
+	.fullText {
 		width: 100%;
 	}
 }
