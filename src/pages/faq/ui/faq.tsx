@@ -1,7 +1,5 @@
-import '@/shared/styles/content.css';
-import '@/pages/faq/ui/tabs.css';
-import '@/pages/faq/ui/search.css';
-import '@/pages/faq/ui/list_more.css';
+import faqStyles from '@/pages/faq/ui/faq.module.css';
+import searchStyles from '@/pages/faq/ui/search.module.css';
 
 import type { FaqData, FaqResponse } from '@/pages/faq/model/faq_model';
 import type { FaqProps } from '@/pages/faq/model/faq_props';
@@ -54,7 +52,7 @@ function Faq({ navigateTo }: FaqProps) {
       selectedCategory,
       currentQuestion,
     ).then((response: FaqResponse) => {
-      setFaqs(response.data); // offset이 0이면 response.data를 설정
+      setFaqs(response.data);
       setNextOffset(response.pageInformation.nextOffset);
       setTotalRecord(response.pageInformation.totalRecord);
     }).catch(() => {
@@ -131,15 +129,15 @@ function Faq({ navigateTo }: FaqProps) {
   }
 
   return (
-    <div className='content'>
+    <div className={faqStyles.content}>
       <h1>
         자주 묻는 질문
         <em>궁금하신 내용을 빠르게 찾아보세요.</em>
       </h1>
-      <i className='sticky-checker'/>
-      <ul className="tabs">
+      <i className={faqStyles.stickyChecker}/>
+      <ul className={faqStyles.tabs}>
         {tabs.map((tab) => (
-          <li key={tab.value} className={tab.isSelected ? 'active' : ''}>
+          <li key={tab.value} className={tab.isSelected ? faqStyles.active : ''}>
             <a onClick={() => onClickTab(tab.value)}>
               <span>{tab.label}</span>
             </a>
@@ -147,17 +145,19 @@ function Faq({ navigateTo }: FaqProps) {
         ))}
       </ul>
       <form onSubmit={onClickSearch}>
-        <div className="search">
-          <div className="input-wrap">
+        <div className={searchStyles.search}>
+          <div className={searchStyles.inputWrap}>
             <input type="text" 
               placeholder="찾으시는 내용을 입력해 주세요"
               value={question}
               onChange={(e) => setQuestion(e.target.value)} />
             <button type="button" 
-              className="clear"
-              onClick={() => setQuestion('')}>다시입력</button>
+              className={searchStyles.clear}
+              onClick={() => setQuestion('')}>
+                다시입력
+            </button>
             <button type="button"
-              className="submit"
+              className={searchStyles.submit}
               onClick={onClickSearch}>
                 검색
             </button>
@@ -177,46 +177,14 @@ function Faq({ navigateTo }: FaqProps) {
         onClickMoreFaq={onClickMoreFaq}
         tabs={tabs}
       />
-      {/* {
-        faqs.length === 0 ? <div className="no-data">
-            <p>검색결과가 없습니다.</p>
-          </div>
-        : <ul className="faq-list">
-          {faqs.map((faq) => (
-            <li key={faq.id} className={
-              selectedFaqId === faq.id ? 'active show' : ''
-              }>
-              <h4 className="a">
-                <button type="button" onClick={() => onClickFaq(faq.id)}>
-                  {tabs.find((tab) => tab.isSelected)?.value === tabsType.serviceUsage && <em>{faq.categoryName}</em>}
-                  <em>{faq.subCategoryName}</em>
-                  <strong>{faq.question}</strong>
-                </button>
-              </h4>
-              <div className="q">
-                <div className="inner" 
-                  // Sanitize-html 적용 필요함
-                  dangerouslySetInnerHTML={{ __html: faq.answer }}>  
-                </div>
-              </div>
-            </li>
-          ))}
-        </ul>
-      }
-      { 
-        (nextOffset < totalRecord) && 
-        <button type="button" className="list-more" onClick={onClickMoreFaq}>
-          <i></i>더보기
-        </button>
-      } */}
-        <h2 className="heading-2">서비스 문의</h2>
-        <InqueryInfo onClickCounsel={onClickCounsel} />
-        <ProcessInfo title="이용 프로세스 안내"
-          processInfoData={ProcessInfoData} />
-        <AppInfo />
-        <DialogAlert 
-          ref={dialogAlertRef}
-          message={dialogAlertMessage}/>
+      <h2 className="heading-2">서비스 문의</h2>
+      <InqueryInfo onClickCounsel={onClickCounsel} />
+      <ProcessInfo title="이용 프로세스 안내"
+        processInfoData={ProcessInfoData} />
+      <AppInfo />
+      <DialogAlert 
+        ref={dialogAlertRef}
+        message={dialogAlertMessage}/>
     </div>
   );
 }

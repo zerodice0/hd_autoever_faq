@@ -1,4 +1,5 @@
 @import '@/shared/styles/content.css';
+@import '@/shared/styles/button_group.css';
 
 .content {
   margin: 0 auto;

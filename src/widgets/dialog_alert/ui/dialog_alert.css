@@ -1,3 +1,5 @@
+@import '@/shared/styles/button_group.css';
+
 dialog {
 	transform: translate3d(0, 0, 0); /* for iOS (flicker when keyboard triggered) */
 }

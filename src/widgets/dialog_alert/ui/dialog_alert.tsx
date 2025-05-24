@@ -1,4 +1,5 @@
 import '@/widgets/dialog_alert/ui/dialog_alert.css';
+import '@/shared/styles/button_group.css';
 
 import type { DialogAlertProps } from '@/widgets/dialog_alert/model/dialog_alert_model';
 import { XlargeTertiaryButton } from '@/shared/xlarge_tetiary_button/ui/xlarge_tertiary_button';
