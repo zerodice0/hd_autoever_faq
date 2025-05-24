@@ -1,12 +1,14 @@
-import { useRef } from 'react';
+import styles from '@/widgets/footer/ui/footer.module.css';
+
 import DialogPolicy from '@/widgets/dialog_policy/ui/dialog_policy';
-import '@/widgets/footer/ui/footer.css'
+
+import { useRef } from 'react';
 
 function Footer() {
   const dialogPolicyRef = useRef<HTMLDialogElement>(null);
 
   const onClickPrivacyPolicy = () => {
-    window.open('https://privacy.kia.com/overview/full-policy', '_self');
+    window.open('https://privacy.kia.com/overview/full-policy', '_blank', 'noreferrer');
   }
 
   const onClickTermsOfService = () => {
@@ -14,10 +16,10 @@ function Footer() {
   }
 
   return (
-    <footer>
-      <div className="inner">
-        <div className="information">
-          <span className="util">
+    <footer className={styles.footer}>
+      <div className={styles.inner}>
+        <div className={styles.information}>
+          <span className={styles.util}>
             <button type="button" onClick={onClickPrivacyPolicy}><b>개인정보 처리방침</b></button>
             <button type="button" onClick={onClickTermsOfService}>이용약관</button>
           </span>
@@ -31,7 +33,7 @@ function Footer() {
             <span>제휴문의: <a href="mailto:kiabiz@kia.com">kiabiz@kia.com</a></span>
           </address>
         </div>
-        <p className="copyright">© 2023 KIA CORP. All Rights Reserved.</p>
+        <p className={styles.copyright}>© 2023 KIA CORP. All Rights Reserved.</p>
       </div>
       <DialogPolicy ref={dialogPolicyRef} />
     </footer>
