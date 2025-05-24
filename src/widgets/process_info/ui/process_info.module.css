@@ -1,0 +1,132 @@
+.processInfo {
+	display: flex;
+	margin: 0 calc(-1 * var(--space-md) / 2);
+	counter-reset: li;
+	line-height: var(--line-height-sm);
+}
+.processInfo > li {
+	flex: 1;
+	margin: 0 calc(var(--space-md) / 2);
+	padding: 0 0 0 24px;
+}
+.reduced .processInfo {
+	margin: 0 -12px;
+}
+.reduced .processInfo > li {
+	margin: 0 12px;
+	padding: 0 8px;
+}
+.processInfo > li > span {
+	position: relative;
+	display: block;
+}
+.processInfo > li:not(:first-child) > span:before {
+	content: '';
+	position: absolute;
+	left: -36px;
+	top: 0;
+	width: 24px;
+	height: 24px;
+	background: url(/images/ic_step_arrow.svg) no-repeat;
+	background-size: auto 100%;
+}
+.processInfo > li > span > strong {
+	display: block;
+	font-size: 18px;
+}
+.processInfo > li > span > strong:before {
+	content: counter(li) '. ';
+	counter-increment: li;
+}
+.processInfo > li > span > em {
+	display: block;
+	margin-top: 8px;
+	font-size: 16px;
+	color: var(--gray-700);
+}
+@media (max-width: 1023px) {
+	.processInfo {
+		flex-direction: column;
+	}
+	.processInfo > li {
+		display: flex;
+		padding: 0 !important;
+	}
+	.processInfo > li:not(:first-child) > span:before {
+		display: none;
+	}
+	.processInfo > li > span > em {
+		max-width: none !important
+	}
+}
+@media (max-width: 743px) {
+	.processInfo > li:not(:first-child) {
+		margin-top: 20px;
+	}
+	.ic {
+		margin: 0 12px 0 0;
+	}
+	.processInfo > li > span > strong {
+		font-size: 16px;
+	}
+	.processInfo > li > span > em {
+		margin-top: 4px;
+		font-size: 14px;
+	}
+}
+@media (min-width: 744px) and (max-width: 1023px) {
+	.processInfo > li:not(:first-child) {
+		margin-top: 24px;
+	}
+	.ic {
+		margin: 0 16px 0 0;
+	}
+}
+
+.heading2 {
+	margin: var(--heading-2-margin);
+	font-size: var(--heading-2);
+	line-height: var(--line-height-sm);
+}
+
+.ic {
+	display: block;
+	width: var(--ic-xlg);
+	height: var(--ic-xlg);
+	flex-shrink: 0;
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+  width: var(--ic-lg);
+	height: var(--ic-lg);
+	margin-right: 8px;
+	margin-bottom: 8px;
+}
+
+.process1 {
+	background-image: url(/images/ic_process01.svg);
+}
+
+.process2 {
+	background-image: url(/images/ic_process02.svg);
+}
+
+.process3 {
+	background-image: url(/images/ic_process03.svg);
+}
+
+.process4 {
+	background-image: url(/images/ic_process04.svg);
+}
+
+.process5 {
+	background-image: url(/images/ic_process05.svg);
+}
+
+.process6 {
+	background-image: url(/images/ic_process06.svg);
+}
+
+.process7 {
+	background-image: url(/images/ic_process07.svg);
+}
+

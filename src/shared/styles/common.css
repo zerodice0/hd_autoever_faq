@@ -33,28 +33,6 @@ i.ic {
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 }
-
-i.ic.process-1 {
-	background-image: url(/images/ic_process01.svg);
-}
-i.ic.process-2 {
-	background-image: url(/images/ic_process02.svg);
-}
-i.ic.process-3 {
-	background-image: url(/images/ic_process03.svg);
-}
-i.ic.process-4 {
-	background-image: url(/images/ic_process04.svg);
-}
-i.ic.process-5 {
-	background-image: url(/images/ic_process05.svg);
-}
-i.ic.process-6 {
-	background-image: url(/images/ic_process06.svg);
-}
-i.ic.process-7 {
-	background-image: url(/images/ic_process07.svg);
-}
 i.ic.service-1 {
 	background-image: url(/images/ic_service01.svg);
 }

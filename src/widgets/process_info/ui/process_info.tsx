@@ -1,5 +1,6 @@
+import styles from '@/widgets/process_info/ui/process_info.module.css';
+
 import type { ProcessInfoModel } from "@/widgets/process_info/model/process_info_model";
-import '@/widgets/process_info/ui/process_info.css';
 
 export function ProcessInfoStep(
   {
@@ -10,7 +11,7 @@ export function ProcessInfoStep(
 ) {
   return (
     <li>
-      <i className={className}></i>
+      <i className={`${styles.ic} ${styles[className]}`}></i>
       <span>
         <strong>{title}</strong>
         <em>{description}</em>
@@ -22,8 +23,8 @@ export function ProcessInfoStep(
 export function ProcessInfo({ title, processInfoData }: { title: string, processInfoData: ProcessInfoModel[] }) {
   return (
     <>
-      <h2 className="heading-2">{title}</h2>
-      <ol className="process-info">
+      <h2 className={styles.heading2}>{title}</h2>
+      <ol className={styles.processInfo}>
         {processInfoData.map((data, index) => (
           <ProcessInfoStep key={index} {...data} />
         ))}
