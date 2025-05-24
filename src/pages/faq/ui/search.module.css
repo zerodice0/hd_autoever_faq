@@ -41,6 +41,17 @@
 	background: url(../images/ic_search.svg) no-repeat;
 	background-size: auto 100%;
 }
+
+.headingInfo {
+	margin: var(--px-md) 0;
+	font-size: var(--heading-info);
+	line-height: var(--line-height-sm);
+}
+
+.headingInfo > em {
+	color: var(--midnight-900);
+}
+
 .searchInfo {
 	display: flex;
 	justify-content: space-between;

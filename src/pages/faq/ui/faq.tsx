@@ -102,6 +102,15 @@ function Faq({ navigateTo }: FaqProps) {
     }
   }
 
+  const onClickInitSearchResult = () => {
+    setQuestion('');
+    setCurrentQuestion(null);
+    setSelectedCategory(null);
+    setNextOffset(0);
+    setTotalRecord(0);
+    setSelectedFaqId(null);
+  }
+
   const onClickCounsel = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     navigateTo('/Counsel');
@@ -164,6 +173,18 @@ function Faq({ navigateTo }: FaqProps) {
           </div>
         </div>
       </form>
+      {
+        currentQuestion && (
+          <div className={searchStyles.searchInfo}>
+            <h2 className={searchStyles.headingInfo}>검색결과 총 <em>{ totalRecord }</em>건 </h2>
+            <button type="button"
+              className={searchStyles.init}
+              onClick={onClickInitSearchResult}>
+                검색초기화
+            </button>
+          </div>
+        )
+      }
       <FaqFilter
         categories={categories}
         selectedCategory={selectedCategory}
