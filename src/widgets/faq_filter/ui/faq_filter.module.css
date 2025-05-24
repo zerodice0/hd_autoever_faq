@@ -1,10 +1,11 @@
-.filter {
+.faqFilter {
 	display: flex;
 	flex-wrap: wrap;
 	margin-bottom: var(--px-md);
 	margin-right: -2px;
 }
-.filter label {
+
+.faqFilter label {
 	position: relative;
 	display: flex;
 	height: var(--btn-md);
@@ -13,17 +14,13 @@
 	cursor: pointer;
 	-webkit-tap-highlight-color: transparent;
 }
-@media (max-width: 743px) {
-	.filter,
-	.filter label {
-		margin-right: 0;
-	}
-}
-.filter label > input {
+
+.faqFilter label > input {
 	position: absolute;
 	left: -100%;
 }
-.filter label > i {
+
+.faqFilter label > i {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -33,7 +30,15 @@
 	letter-spacing: -0.4px;
 	border-radius: calc(var(--btn-md) / 2);
 }
-.filter label > input:checked + i {
+
+.faqFilter label > input:checked + i {
 	color: #fff;
 	background-color: var(--midnight-900);
+}
+
+@media (max-width: 743px) {
+	.faqFilter,
+	.faqFilter label {
+		margin-right: 0;
+	}
 }

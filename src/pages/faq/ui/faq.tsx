@@ -1,7 +1,7 @@
 import '@/shared/styles/content.css';
 import '@/pages/faq/ui/tabs.css';
 import '@/pages/faq/ui/search.css';
-import '@/pages/faq/ui/filter.css';
+// import '@/pages/faq/ui/filter.css';
 import '@/pages/faq/ui/faq.css';
 import '@/pages/faq/ui/list_more.css';
 
@@ -17,6 +17,7 @@ import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
 
 import { useEffect, useRef, useState } from 'react';
 import { InqueryInfo } from '@/widgets/inquery_info/ui/inquery_info';
+import { FaqFilter } from '@/widgets/faq_filter/ui/faq_filter';
 
 function Faq({ navigateTo }: FaqProps) {
   const [tabs, setTabs] = useState<Tabs<TABS_TYPE>[]>([
@@ -164,24 +165,15 @@ function Faq({ navigateTo }: FaqProps) {
           </div>
         </div>
       </form>
-      <div className="filter">
-        {
-          categories.map((category) => (
-            <label key={category.categoryID}>
-              <input type="radio"
-                name="filter"
-                checked={selectedCategory === category.categoryID}
-                onChange={() => onChangeCategory(category.categoryID)}
-              />
-              <i>{category.name}</i>
-            </label>
-          ))
-        }
-      </div>
+      <FaqFilter
+        categories={categories}
+        selectedCategory={selectedCategory}
+        onChangeCategory={onChangeCategory}
+      />
       {
         faqs.length === 0 ? <div className="no-data">
             <p>검색결과가 없습니다.</p>
-          </div> 
+          </div>
         : <ul className="faq-list">
           {faqs.map((faq) => (
             <li key={faq.id} className={
