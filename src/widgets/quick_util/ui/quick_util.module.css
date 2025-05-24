@@ -48,9 +48,7 @@
 	background-image: url(/images/ic_top.svg);
 }
 
-.quickUtil:not(.active) > .inner > button.top,
-.quickUtil > .inner > button.top,
-.quickUtil > .inner > button.top {
+.quickUtil:not(.active) > .inner > button.top {
 	width: 0;
 	height: 0;
 	margin: 0;

@@ -1,8 +1,27 @@
 import styles from '@/widgets/quick_util/ui/quick_util.module.css';
 
-import type { QuickUtilProps } from '@/widgets/quick_util/model/quick_util_props';
+import { useState, useCallback, useEffect } from 'react';
 
-export function QuickUtil({isScrolled, onClickQuickUtil}: QuickUtilProps) {
+export function QuickUtil() {
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  const onClickQuickUtil = useCallback(() => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }, []);
+
+  const onScroll = useCallback(() => {
+    if (window.scrollY > 10 !== isScrolled) {
+      setIsScrolled(window.scrollY > 10);
+    }
+  }, [isScrolled]);
+
+  useEffect(() => {
+    window.addEventListener('scroll', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    }
+  }, [onScroll]);
+
   return (
     <div className={`${styles.quickUtil} ${isScrolled ? styles.active : ''}`}>
       <div className={styles.inner}>
