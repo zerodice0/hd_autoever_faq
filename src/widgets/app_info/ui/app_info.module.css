@@ -1,4 +1,4 @@
-.app-info {
+.appInfo {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
@@ -8,17 +8,17 @@
 	border-radius: 16px;
 	background-color: var(--gray-10);
 }
-.app-info > h2 {
+.appInfo > h2 {
 	width: 100%;
 	margin-bottom: 24px;
 	text-align: center;
 	font-size: 24px;
 	line-height: var(--line-height-sm);
 }
-.app-info > h2 > em {
+.appInfo > h2 > em {
 	color: var(--midnight-900);
 }
-.app-info > a {
+.appInfo > a {
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -30,7 +30,7 @@
 	background: #fff;
 	border-radius: 8px;
 }
-.app-info > a:before {
+.appInfo > a:before {
 	content: '';
 	width: 28px;
 	height: 28px;
@@ -38,65 +38,68 @@
 	background-repeat: no-repeat;
 	background-size: auto 100%;
 }
-.app-info > a.gp:before {
+
+.gp:before {
 	background-image: url(/images/logo_googleplay.svg);
 }
-.app-info > a.as:before {
+
+.as:before {
 	background-image: url(/images/logo_appstore.svg);
 }
+
 @media (max-width: 743px) {
-	.app-info {
+	.appInfo {
 		flex-direction: column;
 		align-items: center;
 		padding: 24px;
 	}
-	.app-info > h2 {
+	.appInfo > h2 {
 		margin-bottom: 4px;
 		font-size: 16px;
 	}
-	.app-info > a {
+	.appInfo > a {
 		width: 100%;
 		max-width: 264px;
 		height: 48px;
 		margin: 12px 0 0;
 		font-size: 14px;
 	}
-	.app-info > a:before {
+	.appInfo > a:before {
 		width: 24px;
 		height: 24px;
 	}
 }
 @media (min-width: 744px) and (max-width: 1023px) {
-	.app-info > h2 {
+	.appInfo > h2 {
 		margin-bottom: 24px;
 		font-size: 20px;
 	}
-	.app-info > a {
+	.appInfo > a {
 		width: 264px;
 		height: 56px;
 		font-size: 14px;
 	}
-	.app-info > a:before {
+	.appInfo > a:before {
 		width: 24px;
 		height: 24px;
 	}
 }
 @media (min-width: 1440px) {
-	.app-info {
+	.appInfo {
 		margin-top: 64px;
 		padding: 40px;
 	}
-	.app-info > h2 {
+	.appInfo > h2 {
 		margin-bottom: 32px;
 		font-size: 32px;
 	}
-	.app-info > a {
+	.appInfo > a {
 		width: 392px;
 		height: 64px;
 		margin: 0 16px;
 		font-size: 18px;
 	}
-	.app-info > a:before {
+	.appInfo > a:before {
 		width: 32px;
 		height: 32px;
 	}

@@ -11,7 +11,7 @@ import { tabsType, type TABS_TYPE, type Tabs } from '@/pages/faq/model/tabs_mode
 import { useCategories } from '@/pages/faq/api/category_hooks';
 import { fetchFaqs } from '@/pages/faq/api/faq_api';
 import { ProcessInfo } from '@/widgets/process_info/ui/process_info';
-import { AppInfo } from '@/pages/faq/ui/app_info/app_info';
+import { AppInfo } from '@/widgets/app_info/ui/app_info';
 import { ProcessInfoData } from '@/pages/faq/model/process_info_data';
 import { DialogAlert } from '@/widgets/dialog_alert/ui/dialog_alert';
 
