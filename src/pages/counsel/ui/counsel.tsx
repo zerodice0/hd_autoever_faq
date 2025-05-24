@@ -43,33 +43,35 @@ export default function Counsel() {
   const onClickRegist = (e: React.MouseEvent<HTMLButtonElement> | React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
-    const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{1,4}$/;
-    const phoneRegex = /^[0-9]{9,12}$/;
-    let message: string | null = null;
-    
-    if (!isInMinMaxLength(companyName, 1, 50)) {
-      message = itemLengthCheckMessage('회사명', 1, 50);
-    } else if (!isInMinMaxLength(departmentName, 1, 50)) {
-      message = itemLengthCheckMessage('부서명', 1, 50);
-    } else if (!isInMinMaxLength(name, 1, 50)) {
-      message = itemLengthCheckMessage('성함', 1, 50);
-    } else if (!emailRegex.test(email)) {
-      message = '이메일 정보는 @를 포함해서 이메일 형식에 맞게 입력해주세요';
-    } else if (!isInMinMaxLength(email, 5, 50)) {
-      message = itemLengthCheckMessage('이메일', 5, 50);
-    } else if (!isInMinMaxLength(phone, 1, 50)) {
-      message = itemLengthCheckMessage('연락처', 1, 50);
-    } else if (!phoneRegex.test(phone)) {
-      message = '연락처 정보는 숫자만 9자리 이상 ~ 12자리 이하로 입력해 주세요';
-    } else if (!isInMinMaxLength(question, 1, 50)) {
-      message = itemLengthCheckMessage('문의내용', 1, 900);
-    }
+    if (agreement) {
+      const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{1,4}$/;
+      const phoneRegex = /^[0-9]{9,12}$/;
+      let message: string | null = null;
+      
+      if (!isInMinMaxLength(companyName, 1, 50)) {
+        message = itemLengthCheckMessage('회사명', 1, 50);
+      } else if (!isInMinMaxLength(departmentName, 1, 50)) {
+        message = itemLengthCheckMessage('부서명', 1, 50);
+      } else if (!isInMinMaxLength(name, 1, 50)) {
+        message = itemLengthCheckMessage('성함', 1, 50);
+      } else if (!emailRegex.test(email)) {
+        message = '이메일 정보는 @를 포함해서 이메일 형식에 맞게 입력해주세요';
+      } else if (!isInMinMaxLength(email, 5, 50)) {
+        message = itemLengthCheckMessage('이메일', 5, 50);
+      } else if (!isInMinMaxLength(phone, 1, 50)) {
+        message = itemLengthCheckMessage('연락처', 1, 50);
+      } else if (!phoneRegex.test(phone)) {
+        message = '연락처 정보는 숫자만 9자리 이상 ~ 12자리 이하로 입력해 주세요';
+      } else if (!isInMinMaxLength(question, 1, 50)) {
+        message = itemLengthCheckMessage('문의내용', 1, 900);
+      }
 
-    if (message) {
-      setDialogAlertMessage(message);
-      dialogAlertRef.current?.showModal();
-    } else {
-      setIsRegisted(true);
+      if (message) {
+        setDialogAlertMessage(message);
+        dialogAlertRef.current?.showModal();
+      } else {
+        setIsRegisted(true);
+      }
     }
   }
 
@@ -200,7 +202,7 @@ export default function Counsel() {
                 onClickTogglePersonalInformation={onClickTogglePersonalInformation}
               />
             </div>
-              <div className="button-group submit">
+              <div className={`${counselStyles.buttonGroup} ${counselStyles.submit}`}>
                 {
                   agreement && <XlargePrimaryButton 
                     onClick={onClickRegist}
