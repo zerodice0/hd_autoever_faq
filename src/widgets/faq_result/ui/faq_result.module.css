@@ -141,3 +141,25 @@
 .listMore i:after {
 	transform: rotate(90deg);
 }
+
+.noData {
+	border-top: 2px solid var(--midnight-900);
+	padding: var(--space-box2) 0;
+	text-align: center;
+	border-bottom: 1px solid var(--gray-200);
+}
+.noData:before {
+	display: block;
+	content: '';
+	width: var(--ic-xlg2);
+	height: var(--ic-xlg2);
+	margin: 0 auto var(--space-xsm2);
+	background: url(/images/ic_nodata.svg) no-repeat;
+	background-size: auto 100%;
+}
+.noData > p {
+	margin-top: var(--space-xsm);
+	line-height: var(--line-height-md);
+	color: var(--gray-500);
+	word-break: keep-all;
+}

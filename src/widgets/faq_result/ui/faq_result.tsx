@@ -18,7 +18,7 @@ export function FaqResult(
   return (
     <>
       {
-        faqs.length === 0 ? <div className="no-data">
+        faqs.length === 0 ? <div className={styles.noData}>
             <p>검색결과가 없습니다.</p>
           </div>
         : <ul className={styles.faqList}>
