@@ -1,4 +1,4 @@
-@import '@/shared/styles/vars.css';
+@import 'src/shared/styles/vars.css';
 
 .app {
   display: flex;
