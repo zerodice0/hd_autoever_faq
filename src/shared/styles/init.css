@@ -30,14 +30,6 @@ textarea {
 	font-size: var(--input-md-fsize);
 	outline: none;
 }
-.sticky-checker {
-	pointer-events: none;
-}
-.container .sticky-checker {
-	display: block;
-	height: var(--header-height);
-	margin-top: calc(-1 * var(--header-height));
-}
 button {
 	padding: 0;
 	background: none;
